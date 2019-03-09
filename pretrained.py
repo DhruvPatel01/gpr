@@ -1,8 +1,10 @@
 import click
 import numpy as np
+import tqdm
 import pandas as pd
 import torch
 from pytorch_pretrained_bert import BertTokenizer, BertModel
+import pickle
 
 def tokenize_row(row, tokenizer):
     txt = row.Text
@@ -51,7 +53,7 @@ def tokenize_tsv(inp):
     toret = []
 
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    for id, row in df.iterrows():
+    for id, row in tqdm.tqdm(df.iterrows(), "Processing", total=len(df)):
         try:
             obj = tokenize_row(row, tokenizer)
         except:
@@ -60,3 +62,15 @@ def tokenize_tsv(inp):
         obj['ID'] = id
         toret.append(obj)
     return toret
+
+@click.command()
+@click.argument('inp')
+@click.argument('out')
+def main(inp, out):
+    ret = tokenize_tsv(inp)
+    for obj in tqdm.tqdm(ret, "Saving"):
+        with open(out + '/' + obj['ID'] + '.pkl', 'wb') as f:
+            pickle.dump(obj, f)
+
+if __name__ == "__main__":
+    main()
