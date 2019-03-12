@@ -17,7 +17,6 @@ def main(inp, out):
     for obj in path.glob('*.pkl'):
         with open(obj, 'rb') as f:
             objs.append(pickle.load(f))
-    print(len(objs))
     model = BertModel.from_pretrained('bert-base-uncased').to(dev)
     model.eval()
     with torch.no_grad():
@@ -26,7 +25,6 @@ def main(inp, out):
             sen = torch.zeros_like(ten).to(dev)
             embd, _ = model(ten, sen)
             ans = embd[-1][0].cpu().numpy()
-            print(ans.shape)
             np.save(out+f'/{obj["ID"]}', ans)
 
 if __name__ == "__main__":
