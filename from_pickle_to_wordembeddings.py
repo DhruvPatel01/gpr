@@ -20,7 +20,7 @@ def main(inp, out):
     model = BertModel.from_pretrained('bert-base-uncased').to(dev)
     model.eval()
     with torch.no_grad():
-        for obj in tqdm.tqdm(objs[:1]):
+        for obj in tqdm.tqdm(objs):
             ten = torch.tensor(obj['tok_ids']).view(1, -1).to(dev)
             sen = torch.zeros_like(ten).to(dev)
             embd, _ = model(ten, sen)
