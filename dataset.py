@@ -28,7 +28,11 @@ class DS_v1(Dataset):
             ys = np.zeros(len(embed), dtype=np.int64)
             ys[ans_ind:ans_ind+len(ans)] = 1
             assert ys[pronoun_ind] == 0
-            newx, newy, lens = to_window.to_window_cbow(embed, ys, pronoun_ind, len(ans)+3)
+            newx, newy, lens = to_window.to_window_cbow(embed, 
+                                                        ans_ind,
+                                                        len(ans),
+                                                        pronoun_ind,
+                                                        len(ans)+3)
             Xs.append(newx)
             Ys.append(newy)
             Zs.append(pronoun_vect)
@@ -38,6 +42,7 @@ class DS_v1(Dataset):
         self.Xs = Xs
         self.Ys = Ys
         self.Zs = Zs
+        self.lengths = lengths
         self.tokens = tokens
         self.titles = titles
 
