@@ -6,12 +6,15 @@
 import torch
 import torch.nn.functional as F
 
+
 class gap_model1(torch.nn.Module):
+    """ Bilinear model with softmax"""
+
     def __init__(self, embedding_size):
         super(gap_model1, self).__init__()
         self.embedding_size = embedding_size
         self.W = torch.randn((embedding_size, embedding_size), requires_grad=True)
-        self.b = torch.randn(1,requires_grad=True)
+        self.b = torch.randn(1, requires_grad=True)
 
     def forward(self, x1, x2):
         bilinear_score = torch.mm(x1, torch.mm(self.W, x2.t())) + self.b
