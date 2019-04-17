@@ -6,71 +6,57 @@ import torch
 from pytorch_pretrained_bert import BertTokenizer, BertModel
 import pickle
 
-def tokenize_row(row, tokenizer):
-    txt = row.Text
-    pronoun = row.Pronoun
-    pr_offset = row['Pronoun-offset']
-    ans = row.A if row['A-coref'] else row.B
-    ans_offset = row['A-offset'] if row['A-coref'] else row['B-offset']
-    
-    if pr_offset < ans_offset:
-        a = pr_offset
-        atok = ' [PAD] '
-        b = ans_offset
-        btok = ' [SEP] '
-    else:
-        b = pr_offset
-        btok = ' [PAD] '
-        a = ans_offset
-        atok = ' [SEP] '
-    txt = '[CLS] ' + txt[:a] + atok + txt[a:b] + btok + txt[b:]
-    
-    toks = tokenizer.tokenize(txt)
+def tokenize(row, tokenizer):
+    break_points = sorted(
+        [
+            ("A", row["A-offset"], row["A"]),
+            ("B", row["B-offset"], row["B"]),
+            ("P", row["Pronoun-offset"], row["Pronoun"]),
+        ], key=lambda x: x[0]
+    )
+    tokens, spans, current_pos = [], {}, 0
+    for name, offset, text in break_points:
+        tokens.extend(tokenizer.tokenize(row["Text"][current_pos:offset]))
+        # Make sure we do not get it wrong
+        assert row["Text"][offset:offset+len(text)] == text
+        # Tokenize the target
+        tmp_tokens = tokenizer.tokenize(row["Text"][offset:offset+len(text)])
+        spans[name] = [len(tokens), len(tokens) + len(tmp_tokens)]
+        tokens.extend(tmp_tokens)
+        current_pos = offset + len(text)
+    tokens.extend(tokenizer.tokenize(row["Text"][current_pos:offset]))
+    assert spans["P"][0] == spans["P"][1]-1
+    return tokens, (spans["A"] + spans["B"] + [spans["P"][0]])
 
-    pr_index = toks.index('[PAD]')
-    toks.pop(pr_index)
-    ans_index = toks.index('[SEP]')
-    toks.pop(ans_index)
-    if pr_index > ans_index:
-        pr_index -= 1
-    ans = tokenizer.tokenize(ans)
-
-    tok_ids= tokenizer.convert_tokens_to_ids(toks)
-    txt = txt.replace('[SEP]', '')
-    txt = txt.replace('[PAD]', '')
-    obj = {
-        "tokens": toks,
-        "tok_ids": tok_ids,
-        "pronoun": tokenizer.tokenize(pronoun),
-        "pronoun_index": pr_index,
-        "ans": ans,
-        "ans_index": ans_index
-    }
-    return obj
-
-def tokenize_tsv(inp):
-    df = pd.read_csv(inp, sep='\t').set_index('ID')
-    toret = []
-
+def tokenize_tsv(inp, layers_to_save=[9, 10, 11]):
+    df = pd.read_csv(inp, sep='\t')
+    dev = 'cuda' if torch.cuda.is_available() else 'cpu'
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    for id, row in tqdm.tqdm(df.iterrows(), "Processing", total=len(df)):
-        try:
-            obj = tokenize_row(row, tokenizer)
-        except:
-            print(id)
-            raise
-        obj['ID'] = id
-        toret.append(obj)
-    return toret
+    model = BertModel.from_pretrained('bert-base-uncased').to(dev)
+
+    answ = [[] for i in layers_to_save]
+    with torch.no_grad():
+        for id, row in tqdm.tqdm(df.iterrows(), "Processing", total=len(df)):
+            sent, spans = tokenize(row, tokenizer)
+            sent = ['[CLS]'] + sent + ['[SEP]']
+            spans = [s+1 for s in spans]
+            sent = tokenizer.convert_tokens_to_ids(sent)
+            sent = torch.tensor([sent]).to(dev)
+            encoding, _ = model(sent)
+            for i, n in enumerate(layers_to_save):
+                A = encoding[n][0][spans[0]:spans[1]].cpu().numpy().tolist()
+                B = encoding[n][0][spans[2]:spans[3]].cpu().numpy().tolist()
+                P = encoding[n][0][spans[4]].cpu().numpy().tolist()
+                answ[i].append((A, B, P))
+    return answ
 
 @click.command()
 @click.argument('inp')
 @click.argument('out')
 def main(inp, out):
     ret = tokenize_tsv(inp)
-    for obj in tqdm.tqdm(ret, "Saving"):
-        with open(out + '/' + obj['ID'] + '.pkl', 'wb') as f:
-            pickle.dump(obj, f)
+    with open(out, 'wb') as f:
+        pickle.dump(ret, f)
 
 if __name__ == "__main__":
     main()
