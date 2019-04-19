@@ -7,8 +7,9 @@ import pandas as pd
 from tensorboardX import SummaryWriter
 
 def bucket_id(x):
-    if 0 <= x < 5:
-        return x
+    assert x > 0
+    if 0 < x < 5:
+        return x-1
     elif x < 8:
         return 4
     elif x < 16:
@@ -43,17 +44,21 @@ class DS(Dataset):
 
             p = row['A-offset']
             q = row['Pronoun-offset']
-            if row['A-offset'] > row['Pronoun-offset']:
+            size = self.a_size[i]
+            if p > q:
                 p, q = q, p
+                size = 1
             subsentence = row.Text[p:q]
-            self.a_dist[i] = bucket_id(len(subsentence.split()) - self.a_size[i] + 1)
+            self.a_dist[i] = bucket_id(len(subsentence.split()) - size + 1)
 
             p = row['B-offset']
             q = row['Pronoun-offset']
-            if row['B-offset'] > row['Pronoun-offset']:
+            size = self.b_size[i]
+            if p > q:
                 p, q = q, p
+                size = 1
             subsentence = row.Text[p:q]
-            self.b_dist[i] = bucket_id(len(subsentence.split()) - self.b_size[i] + 1)
+            self.b_dist[i] = bucket_id(len(subsentence.split()) - size + 1)
 
     def __len__(self):
         return len(self.a_dist)
@@ -76,8 +81,10 @@ class Model(nn.Module):
             nn.Dropout(dropout),
             nn.BatchNorm1d(128),
             nn.Linear(128, 128),
-            nn.ELU(),
-            nn.Linear(128, 1, bias=False),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.BatchNorm1d(128),
+            nn.Linear(128, 1)#, bias=False),
         )
 
     def forward(self, a, b, p, dist_a, dist_b, size_a, size_b):
