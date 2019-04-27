@@ -1,0 +1,563 @@
+ID	A	A-coref	A-offset	B	B-coref	B-offset	Pronoun	Pronoun-offset	Text
+dpr-test-0	The sniper	False	0	the terrorist	True	16	he	38	The sniper shot the terrorist because he was a bad guy.
+dpr-test-1	The sniper	True	0	the terrorist	False	16	he	38	The sniper shot the terrorist because he had orders.
+dpr-test-2	The chimpanzee	True	0	Linux	False	29	it	43	The chimpanzee could not use Linux because it was an animal.
+dpr-test-3	The chimpanzee	False	0	Linux	True	29	it	43	The chimpanzee could not use Linux because it uses different commands than Windows.
+dpr-test-4	Bill	False	0	Bob	True	13	he	37	Bill punched Bob in the face because he was being rude to Mary.
+dpr-test-5	Bill	True	0	Bob	False	13	he	37	Bill punched Bob in the face because he wanted to protect Mary.
+dpr-test-6	Carl	False	0	Richard	True	26	him	70	Carl borrowed a book from Richard, but the book was never returned to him.
+dpr-test-7	Carl	True	0	Richard	False	26	him	66	Carl borrowed a book from Richard, but the book was unreadable to him.
+dpr-test-8	Bill	True	0	Bob	False	24	he	36	Bill likes to play with Bob because he loves playing.
+dpr-test-9	Bill	False	0	Bob	True	24	he	32	Bill likes to play with Bob but he did not want to.
+dpr-test-10	The salesperson	False	0	Dave	True	21	he	58	The salesperson told Dave that this would be the best car he ever bought.
+dpr-test-11	The salesperson	True	0	Dave	False	21	he	58	The salesperson told Dave that this would be the best car he ever sold.
+dpr-test-12	The student	True	0	the professor	False	26	he	76	The student wanted to ask the professor for help but decided not to because he was too scared.
+dpr-test-13	The student	False	0	the professor	True	26	he	76	The student wanted to ask the professor for help but decided not to because he was too intimidating.
+dpr-test-14	The student	False	0	the teacher	True	32	he	52	The student couldn't understand the teacher because he had an accent.
+dpr-test-15	The student	True	0	the teacher	False	32	he	52	The student couldn't understand the teacher because he wasn't paying attention.
+dpr-test-16	The campers	False	0	their flashlights	True	22	them	68	The campers turned on their flashlights because it was dark without them.
+dpr-test-17	The campers	True	0	their flashlights	False	22	them	68	The campers turned on their flashlights because the darkness scared them.
+dpr-test-18	Francis	True	0	the penguin	False	30	he	50	Francis stopped and looked at the penguin because he was intrigued.
+dpr-test-19	Francis	False	0	the penguin	True	30	he	50	Francis stopped and looked at the penguin because he was cute.
+dpr-test-20	The off-campus apartments	True	0	the on-campus apartments	False	44	they	77	The off-campus apartments were preferred to the on-campus apartments because they were cheaper.
+dpr-test-21	The off-campus apartments	False	0	the on-campus apartments	True	44	they	77	The off-campus apartments were preferred to the on-campus apartments because they were more expensive.
+dpr-test-22	The general	True	0	the monster	False	32	he	47	The general fired his pistol at the monster so he could be a distraction.
+dpr-test-23	The general	False	0	the monster	True	32	he	47	The general fired his pistol at the monster so he turned and looked.
+dpr-test-24	Liverpool	True	0	Manchester United	False	18	they	44	Liverpool lost to Manchester United because they had been mismanaged all season.
+dpr-test-25	Liverpool	False	0	Manchester United	True	18	they	44	Liverpool lost to Manchester United because they were a superior team.
+dpr-test-26	Rice	True	0	Texas	False	10	they	29	Rice beat Texas, even though they were a smaller school.
+dpr-test-27	Rice	False	0	Texas	True	10	they	29	Rice beat Texas, even though they were the best team in the nation.
+dpr-test-28	The state	True	0	prisoners	False	19	they	37	The state executes prisoners because they want justice.
+dpr-test-29	The state	False	0	prisoners	True	19	they	37	The state executes prisoners because they were convicted of heinous crimes.
+dpr-test-30	Jason	True	0	Rocky	False	12	he	31	Jason built Rocky a robot, and he gave it to him.
+dpr-test-31	Jason	False	0	Rocky	True	12	he	30	Jason built Rocky a robot, so he had more free time.
+dpr-test-32	My heart	False	0	blood	True	15	it	29	My heart pumps blood because it is liquid.
+dpr-test-33	My heart	True	0	blood	False	15	it	29	My heart pumps blood because it is a muscle.
+dpr-test-34	Joe	True	0	Adam	False	23	he	34	Joe smells better than Adam since he showers regularly.
+dpr-test-35	Joe	False	0	Adam	True	23	he	34	Joe smells better than Adam since he hardly ever showers.
+dpr-test-36	The pen	False	0	the sword	True	25	it	43	The pen is mightier than the sword because it can only stab things.
+dpr-test-37	The pen	True	0	the sword	False	25	it	43	The pen is mightier than the sword because it can be used to write world-changing documents.
+dpr-test-38	The cats	True	0	the humans	False	18	they	37	The cats attacked the humans because they were feral.
+dpr-test-39	The cats	False	0	the humans	True	18	they	37	The cats attacked the humans because they smelled like fish.
+dpr-test-40	Bob	True	0	Larry	False	13	he	44	Bob can beat Larry at arm wrestling because he has more muscles.
+dpr-test-41	Bob	False	0	Larry	True	13	he	44	Bob can beat Larry at arm wrestling because he is a toddler.
+dpr-test-42	Donald	False	0	King	True	14	he	23	Donald kicked King but he never cried.
+dpr-test-43	Donald	True	0	King	False	14	he	23	Donald kicked King but he never felt bad.
+dpr-test-44	Steve	True	0	John	False	31	he	44	Steve went to the meeting with John because he was asked to.
+dpr-test-45	Steve	False	0	John	True	31	he	44	Steve went to the meeting with John because he asked him to.
+dpr-test-46	Mary	False	0	Sandy	True	10	she	33	Mary gave Sandy her book because she needed it.
+dpr-test-47	Mary	True	0	Sandy	False	10	she	33	Mary gave Sandy her book because she is generous.
+dpr-test-48	John	False	0	Luke	True	13	he	42	John visited Luke in the hospital because he was sick.
+dpr-test-49	John	True	0	Luke	False	13	he	42	John visited Luke in the hospital because he lived close by.
+dpr-test-50	John	True	0	Bill	False	11	he	24	John hired Bill because he needed someone.
+dpr-test-51	John	False	0	Bill	True	11	he	24	John fired Bill because he was incompetent.
+dpr-test-52	John	True	0	Bill	False	16	he	29	John introduced Bill because he knew everyone.
+dpr-test-53	John	False	0	Bill	True	16	he	29	John introduced Bill because he was new.
+dpr-test-54	John	True	0	Bill	False	10	he	19	John shot Bill and he was jailed.
+dpr-test-55	John	False	0	Bill	True	10	he	19	John shot Bill and he died.
+dpr-test-56	The Mad Hatter	True	0	the March Hare	False	46	his	66	The Mad Hatter tried to offer a cup of tea to the March Hare, but his hat was too distracting.
+dpr-test-57	The Mad Hatter	False	0	the March Hare	True	46	his	66	The Mad Hatter tried to offer a cup of tea to the March Hare, but his long ears were too distracting.
+dpr-test-58	Richard	False	0	Senator Carson	True	20	his	43	Richard blackmailed Senator Carson so that his silence would be secured.
+dpr-test-59	Richard	True	0	Senator Carson	False	20	his	43	Richard blackmailed Senator Carson so that his rise to power would be secured.
+dpr-test-60	Tradition	False	0	the Stanley Cup	True	36	it	63	Tradition dictated the captain hold the Stanley Cup first, and it was pretty.
+dpr-test-61	Tradition	True	0	the Stanley Cup	False	36	it	63	Tradition dictated the captain hold the Stanley Cup first, and it is always followed.
+dpr-test-62	The bat	True	0	the ball	False	12	it	29	The bat hit the ball because it was designed to hit.
+dpr-test-63	The bat	False	0	the ball	True	12	it	29	The bat hit the ball because it was designed to be hit.
+dpr-test-64	The program	True	0	the file	False	37	it	54	The program could successfully parse the file because it was programmed well.
+dpr-test-65	The program	False	0	the file	True	37	it	54	The program could successfully parse the file because it was formatted well.
+dpr-test-66	The article	False	0	the fires	True	18	they	38	The article about the fires said that they torched most of Seattle.
+dpr-test-67	The article	True	0	the fires	False	18	they	38	The article about the fires said that they would research the situation further.
+dpr-test-68	The winners	True	0	the awards	False	23	they	40	The winners were given the awards after they won.
+dpr-test-69	The winners	False	0	the awards	True	23	they	40	The winners were given the awards after they were made.
+dpr-test-70	The man	True	0	the neighbor	False	18	he	42	The man jumped on the neighbor's pool and he swam.
+dpr-test-71	The man	False	0	the neighbor	True	18	he	42	The man jumped on the neighbor's pool and he stared.
+dpr-test-72	The team	True	0	the report	False	18	it	38	The team shredded the report, so that it could rewrite a new one.
+dpr-test-73	The team	False	0	the report	True	18	it	38	The team shredded the report, so that it could be rewritten.
+dpr-test-74	Bob	True	0	Tom	False	10	he	17	Bob asked Tom if he could take him to the movies.
+dpr-test-75	Bob	False	0	Tom	True	10	he	17	Bob asked Tom if he could lend some money.
+dpr-test-76	Homer	False	0	Flanders	True	14	he	31	Homer punched Flanders because he was being annoying.
+dpr-test-77	Homer	True	0	Flanders	False	14	he	31	Homer punched Flanders because he was asked to.
+dpr-test-78	Nelson	False	0	Milhouse	True	15	he	28	Nelson punched Milhouse but he was not hurt.
+dpr-test-79	Nelson	True	0	Milhouse	False	15	he	28	Nelson punched Milhouse but he was not caught.
+dpr-test-80	The mermaid	False	0	Sue	True	24	her	37	The mermaid swam toward Sue and made her gasp.
+dpr-test-81	The mermaid	True	0	Sue	False	24	her	38	The mermaid swam toward Sue and waved her tail.
+dpr-test-82	The mother bear	False	0	Karen	True	25	she	39	The mother bear attacked Karen because she had gotten too close to her cub.
+dpr-test-83	The mother bear	True	0	Karen	False	25	she	39	The mother bear attacked Karen because she was worried for her cub.
+dpr-test-84	Mary	False	0	Susan	True	15	she	26	Mary smiled at Susan, but she did not smile back.
+dpr-test-85	Mary	True	0	Susan	False	15	she	26	Mary smiled at Susan, but she was not happy to see her.
+dpr-test-86	The leech	False	0	the hippo	True	23	it	41	The leech latched onto the hippo so that it could enjoy the sunshine.
+dpr-test-87	The leech	True	0	the hippo	False	23	it	41	The leech latched onto the hippo because it was hungry.
+dpr-test-88	The people	True	0	the government	False	21	they	44	The people protested the government because they were hungry.
+dpr-test-89	The people	False	0	the government	True	21	they	44	The people protested the government because they were raising taxes.
+dpr-test-90	the beer	True	8	a lime	False	22	it	37	I drank the beer with a lime because it was cold.
+dpr-test-91	the beer	False	8	a lime	True	22	it	37	I drank the beer with a lime because it was sour.
+dpr-test-92	The employer	True	0	the employee	False	23	him	57	The employer talked to the employee about being loyal to him.
+dpr-test-93	The employer	False	0	the employee	True	23	him	49	The employer talked to the employee about firing him.
+dpr-test-94	A chicken	True	0	a bug	False	20	it	30	A chicken pecked at a bug and it ate it.
+dpr-test-95	A chicken	False	0	a bug	True	20	it	30	A chicken pecked at a bug and it ran away.
+dpr-test-96	The dogs	False	0	the fleas	True	14	they	32	The dogs hate the fleas because they suck blood.
+dpr-test-97	The dogs	True	0	the fleas	False	14	they	32	The dogs hate the fleas because they hate bugs.
+dpr-test-98	Steven Seagal	True	0	Jean Claude Van Damme	False	25	he	66	Steven Seagal challenged Jean Claude Van Damme to a fight because he wanted to prove he was the stronger man.
+dpr-test-99	Steven Seagal	False	0	Jean Claude Van Damme	True	25	he	66	Steven Seagal challenged Jean Claude Van Damme to a fight because he is a worthy opponent.
+dpr-test-100	Girls	False	0	puppies	True	11	they	27	Girls like puppies because they are adorable.
+dpr-test-101	Girls	True	0	puppies	False	11	they	27	Girls like puppies because they like adorable things.
+dpr-test-102	Jack	True	0	John	False	25	him	55	Jack got more votes than John because the people liked him.
+dpr-test-103	Jack	False	0	John	True	25	him	62	Jack got more votes than John because the people did not like him.
+dpr-test-104	The car	False	0	the truck	True	15	it	33	The car passed the truck because it was going too slow.
+dpr-test-105	The car	True	0	the truck	False	15	it	33	The car passed the truck because it needed to go faster.
+dpr-test-106	My phone	True	0	your phone	False	32	it	51	My phone is working better than your phone because it is a newer model.
+dpr-test-107	My phone	False	0	your phone	True	32	it	51	My phone is working better than your phone because it is broken.
+dpr-test-108	Raja	False	0	Rena	True	12	he	41	Raja wanted Rena to take the job because he would be a good candidate.
+dpr-test-109	Raja	True	0	Rena	False	12	he	41	Raja wanted Rena to take the job because he wanted to leave.
+dpr-test-110	Sheila	False	0	the old jalopy	True	23	she	51	Sheila tried to repair the old jalopy, even though she had not run in three decades.
+dpr-test-111	Sheila	True	0	the old jalopy	False	23	she	51	Sheila tried to repair the old jalopy, even though she had not worked on cars in three decades.
+dpr-test-112	The ghost	True	0	the house	False	18	it	36	The ghost entered the house because it was haunting.
+dpr-test-113	The ghost	False	0	the house	True	18	it	36	The ghost entered the house because it was haunted.
+dpr-test-114	The boy	True	0	the cop	False	16	he	28	The boy escaped the cop but he continued to flee.
+dpr-test-115	The boy	False	0	the cop	True	16	he	28	The boy escaped the cop but he continued to search.
+dpr-test-116	The needle	False	0	the skin	True	21	it	34	The needle punctured the skin but it failed to register pain.
+dpr-test-117	The needle	True	0	the skin	False	21	it	34	The needle punctured the skin but it failed to administer pain.
+dpr-test-118	The lion	True	0	the fish	False	13	it	26	The lion saw the fish and it pounced.
+dpr-test-119	The lion	False	0	the fish	True	13	it	26	The lion saw the fish and it was swimming.
+dpr-test-120	The clown	False	0	the child	True	20	he	34	The clown smiled at the child and he cried.
+dpr-test-121	The clown	True	0	the child	False	20	he	34	The clown smiled at the child and he offered him a balloon.
+dpr-test-122	the chimps	True	20	some bananas	False	31	they	52	The scientists gave the chimps some bananas because they were hungry.
+dpr-test-123	the chimps	False	20	some bananas	True	31	they	52	The scientists gave the chimps some bananas because they were ripe.
+dpr-test-124	The boss	False	0	the worker	True	15	he	31	The boss fired the worker when he stopped performing well.
+dpr-test-125	The boss	True	0	the worker	False	15	he	31	The boss fired the worker when he called him into the office.
+dpr-test-126	The outlet	True	0	the lamp	False	19	it	33	The outlet powered the lamp when it had electricity.
+dpr-test-127	The outlet	False	0	the lamp	True	19	it	33	The outlet powered the lamp when it was plugged in.
+dpr-test-128	The paintball player	False	0	the referee	True	32	he	52	The paintball player was mad at the referee because he missed a call.
+dpr-test-129	The paintball player	True	0	the referee	False	32	he	52	The paintball player was mad at the referee because he was called out but shouldn't.
+dpr-test-130	The network heads	False	0	the TV shows	True	28	they	49	The network heads cancelled the TV shows because they were not doing well.
+dpr-test-131	The network heads	True	0	the TV shows	False	28	they	49	The network heads cancelled the TV shows because they did not like the content.
+dpr-test-132	The cheetah	True	0	the antelope	False	19	it	35	The cheetah outran the antelope so it got to eat.
+dpr-test-133	The cheetah	False	0	the antelope	True	19	it	35	The cheetah outran the antelope so it got eaten.
+dpr-test-134	The keys	False	0	the words	True	15	they	33	The keys typed the words because they were meant to be typed.
+dpr-test-135	The keys	True	0	the words	False	15	they	33	The keys typed the words because they were meant to be typed on.
+dpr-test-136	The racquetball players	False	0	the other students	True	40	they	90	The racquetball players were annoyed by the other students in the activity center because they were using the racquetball courts to play badminton.
+dpr-test-137	The racquetball players	True	0	the other students	False	40	they	90	The racquetball players were annoyed by the other students in the activity center because they wanted to play and couldn't.
+dpr-test-138	The teachers	False	0	the students	True	21	they	42	The teachers scolded the students because they would not learn the material.
+dpr-test-139	The teachers	True	0	the students	False	21	they	42	The teachers scolded the students because they were the authority figures.
+dpr-test-140	The plane	True	0	the sky	False	17	it	29	The plane was in the sky and it was fast.
+dpr-test-141	The plane	False	0	the sky	True	17	it	29	The plane was in the sky and it was cloudy.
+dpr-test-142	Joe	False	0	Mike	True	17	he	26	Joe crashed into Mike and he had to pay for the damage.
+dpr-test-143	Joe	True	0	Mike	False	17	he	30	Joe crashed into Mike because he needed a place to sleep.
+dpr-test-144	The man	False	0	his friend	True	13	he	28	The man shot his friend and he died.
+dpr-test-145	The man	True	0	his friend	False	13	he	28	The man shot his friend and he was arrested.
+dpr-test-146	The man	True	0	the boss	False	15	he	32	The man killed the boss because he hated the job.
+dpr-test-147	The man	False	0	the boss	True	15	he	32	The man killed the boss because he fired him.
+dpr-test-148	Joe	True	0	Steven	False	18	he	33	Joe raced against Steven because he thought it would be easy.
+dpr-test-149	Joe	False	0	Steven	True	18	he	33	Joe raced against Steven because he would not say no.
+dpr-test-150	The light	True	0	the mirror	False	14	it	29	The light hit the mirror and it reflected.
+dpr-test-151	The light	False	0	the mirror	True	14	it	29	The light hit the mirror and it shattered.
+dpr-test-152	Google Plus	True	0	Facebook	False	48	it	61	Google Plus is expected to be a replacement for Facebook but it still does not have enough active users.
+dpr-test-153	Google Plus	False	0	Facebook	True	48	it	61	Google Plus is expected to be a replacement for Facebook but it still has a lot more active users.
+dpr-test-154	The spear	True	0	the armor	False	33	it	51	The spear easily pierced through the armor because it was too sharp.
+dpr-test-155	The spear	False	0	the armor	True	33	it	51	The spear easily pierced through the armor because it was too thin.
+dpr-test-156	The cat	True	0	the mouse	False	15	it	33	The cat caught the mouse because it was clever.
+dpr-test-157	The cat	False	0	the mouse	True	15	it	33	The cat caught the mouse because it was careless.
+dpr-test-158	Joseph	True	0	William	False	22	he	47	Joseph did not defeat William in the match, so he paid $100.
+dpr-test-159	Joseph	False	0	William	True	22	he	47	Joseph did not defeat William in the match, so he earned $100.
+dpr-test-160	Adam	False	0	Alexander	True	20	he	34	Adam failed to kill Alexander, so he hired a bodygaurd in case of a second attempt.
+dpr-test-161	Adam	True	0	Alexander	False	20	he	34	Adam failed to kill Alexander, so he hired an assassin for the second attempt.
+dpr-test-162	The bowl	False	0	a crack	True	13	it	25	The bowl had a crack, so it was filled in.
+dpr-test-163	The bowl	True	0	a crack	False	13	it	25	The bowl had a crack, so it was thrown away.
+dpr-test-164	The student	True	0	the instructor	False	17	he	37	The student told the instructor that he was sick.
+dpr-test-165	The student	False	0	the instructor	True	17	he	37	The student told the instructor that he talked fast.
+dpr-test-166	Joe	False	0	Bob	True	8	he	36	Joe put Bob in the time machine and he went to the future.
+dpr-test-167	Joe	True	0	Bob	False	8	he	36	Joe put Bob in the time machine and he created another one.
+dpr-test-168	Bill	True	0	Joe	False	11	he	18	Bill asked Joe if he could borrow some money.
+dpr-test-169	Bill	False	0	Joe	True	11	he	18	Bill asked Joe if he had any money.
+dpr-test-170	The chef	False	0	the waiter	True	14	he	33	The chef held the waiter so that he would not flee.
+dpr-test-171	The chef	True	0	the waiter	False	14	he	33	The chef held the waiter so that he did not fall off.
+dpr-test-172	Tony	True	0	Jeff	False	12	he	25	Tony helped Jeff because he wanted to help.
+dpr-test-173	Tony	False	0	Jeff	True	12	he	25	Tony helped Jeff because he needed help.
+dpr-test-174	The cat	False	0	the dog	True	22	it	38	The cat was afraid of the dog because it was scary.
+dpr-test-175	The cat	True	0	the dog	False	22	it	38	The cat was afraid of the dog because it was timid.
+dpr-test-176	The violin	True	0	the table	False	20	it	54	The violin fell off the table because someone knocked it off.
+dpr-test-177	The violin	False	0	the table	True	20	it	38	The violin fell off the table because it was unstable.
+dpr-test-178	Lily	False	0	Amber	True	10	she	30	Lily gave Amber a hug because she was sad.
+dpr-test-179	Lily	True	0	Amber	False	10	she	30	Lily gave Amber a hug because she was sorry.
+dpr-test-180	The birds	True	0	the seeds	False	14	they	32	The birds ate the seeds because they were hungry.
+dpr-test-181	The birds	False	0	the seeds	True	14	they	32	The birds ate the seeds because they were tasty.
+dpr-test-182	Josie	False	0	Sarah	True	19	she	30	Josie did not like Sarah, but she did not know it.
+dpr-test-183	Josie	True	0	Sarah	False	19	she	30	Josie did not like Sarah, but she did not tell her.
+dpr-test-184	Ken	True	0	the boss	False	24	he	41	Ken tried to sneak past the boss because he was late for work.
+dpr-test-185	Ken	False	0	the boss	True	24	he	41	Ken tried to sneak past the boss because he was looking for late people.
+dpr-test-186	The hyenas	True	0	the lions	False	26	they	44	The hyenas scavenged from the lions because they were desperate.
+dpr-test-187	The hyenas	False	0	the lions	True	26	they	44	The hyenas scavenged from the lions because they had left scraps.
+dpr-test-188	The fisherman	False	0	a big fish	True	21	he	36	The fisherman hooked a big fish but he got away.
+dpr-test-189	The fisherman	True	0	a big fish	False	21	he	36	The fisherman hooked a big fish but he dropped his pole.
+dpr-test-190	The geology department	True	0	the school board	False	34	they	69	The geology department petitioned the school board for money because they needed funding.
+dpr-test-191	The geology department	False	0	the school board	True	34	they	69	The geology department petitioned the school board for money because they could grant funding.
+dpr-test-192	George	True	0	Thomas	False	22	he	49	George scored against Thomas in the shootout, so he won the game.
+dpr-test-193	George	False	0	Thomas	True	22	he	49	George scored against Thomas in the shootout, so he lost the game.
+dpr-test-194	Lakshman	True	0	Vivan	False	15	he	55	Lakshman asked Vivan to get him some ice cream because he was hot.
+dpr-test-195	Lakshman	False	0	Vivan	True	15	he	55	Lakshman asked Vivan to get him some ice cream because he owed him money.
+dpr-test-196	Yuri	False	0	Ivan	True	10	he	29	Yuri owed Ivan money because he paid for the vodka.
+dpr-test-197	Yuri	True	0	Ivan	False	10	he	29	Yuri owed Ivan money because he lost the bet.
+dpr-test-198	Steve	False	0	Jose	True	12	he	25	Steve hired Jose because he was a hard worker.
+dpr-test-199	Steve	True	0	Jose	False	12	he	25	Steve hired Jose because he could not find anyone better.
+dpr-test-200	The outlaw	True	0	the sheriff	False	16	he	33	The outlaw shot the sheriff, but he did not shoot the deputy.
+dpr-test-201	The outlaw	False	0	the sheriff	True	16	he	33	The outlaw shot the sheriff, but he shot back.
+dpr-test-202	Kelly	True	0	Katie	False	24	she	59	Kelly neglected to tell Katie that their rent was due, but she told her later.
+dpr-test-203	Kelly	False	0	Katie	True	24	she	59	Kelly neglected to tell Katie that their rent was due, but she remembered that it was due on the first of every month.
+dpr-test-204	The committee	False	0	the students	True	66	they	84	The committee increased the price of the tickets to the dance for the students, but they did not like it.
+dpr-test-205	The committee	True	0	the students	False	66	they	84	The committee increased the price of the tickets to the dance for the students, but they changed their decision later.
+dpr-test-206	John	False	0	George	True	12	he	48	John wanted George to run for President because he was a great governor.
+dpr-test-207	John	True	0	George	False	12	he	48	John wanted George to run for President because he did not want to.
+dpr-test-208	Olivia	True	0	Emily	False	33	she	44	Olivia wants to make amends with Emily, but she is apprehensive.
+dpr-test-209	Olivia	False	0	Emily	True	33	she	44	Olivia wants to make amends with Emily, but she no longer wants to be friends.
+dpr-test-210	Jill	True	0	Jane	False	9	she	29	Jill saw Jane fall down, and she helped her up.
+dpr-test-211	Jill	False	0	Jane	True	9	she	29	Jill saw Jane fall down, and she asked her for help.
+dpr-test-212	Larry	False	0	Marty	True	24	he	46	Larry purchased some of Marty's Lemonade, and he made money.
+dpr-test-213	Larry	True	0	Marty	False	24	he	46	Larry purchased some of Marty's Lemonade, and he wanted the recipe.
+dpr-test-214	The professor	False	0	the student	True	19	he	51	The professor gave the student a bad grade because he did not study.
+dpr-test-215	The professor	True	0	the student	False	19	he	51	The professor gave the student a bad grade because he was strict.
+dpr-test-216	the books	True	8	the shops	False	21	they	39	We took the books to the shops because they were old.
+dpr-test-217	the books	False	8	the shops	True	21	they	39	We took the books to the shops because they would buy them.
+dpr-test-218	the fruit	False	8	the humans	True	21	they	40	We gave the fruit to the humans because they were hungry.
+dpr-test-219	the fruit	True	8	the humans	False	21	they	40	We gave the fruit to the humans because they were ripe.
+dpr-test-220	Battlefield 3	True	0	Modern Warfare 3	False	31	it	56	Battlefield 3 is more fun than Modern Warfare 3 because it is a better game.
+dpr-test-221	Battlefield 3	False	0	Modern Warfare 3	True	31	it	56	Battlefield 3 is more fun than Modern Warfare 3 because it is a crappy game.
+dpr-test-222	John	True	0	Tim	False	14	he	26	John attacked Tim because he hates communists.
+dpr-test-223	John	False	0	Tim	True	14	he	26	John attacked Tim because he was a communist.
+dpr-test-224	Someone	True	0	Billy	False	12	he	38	Someone hit Billy in the face because he was angry.
+dpr-test-225	Someone	False	0	Billy	True	12	he	38	Someone hit Billy in the face because he was being rude.
+dpr-test-226	Joe	True	0	Adam	False	24	he	35	Joe has more money than Adam since he has a better job.
+dpr-test-227	Joe	False	0	Adam	True	24	he	35	Joe has more money than Adam since he has no job.
+dpr-test-228	Pigs	True	0	sheep	False	21	they	35	Pigs are better than sheep because they make bacon.
+dpr-test-229	Pigs	False	0	sheep	True	21	they	35	Pigs are better than sheep because they do not make bacon.
+dpr-test-230	The car	True	0	the bike	False	13	it	30	The car beat the bike because it was faster.
+dpr-test-231	The car	False	0	the bike	True	13	it	30	The car beat the bike because it was too slow.
+dpr-test-232	The blimp	True	0	the tree	False	14	it	31	The blimp hit the tree because it lost air.
+dpr-test-233	The blimp	False	0	the tree	True	14	it	31	The blimp hit the tree because it was in the way.
+dpr-test-234	Bob	False	0	Bill	True	9	he	22	Bob sued Bill because he was embezzling funds.
+dpr-test-235	Bob	True	0	Bill	False	9	he	22	Bob sued Bill because he wanted more money.
+dpr-test-236	the donkey	True	7	some food	False	18	it	36	I gave the donkey some food because it was hungry.
+dpr-test-237	the donkey	False	7	some food	True	18	it	36	I gave the donkey some food because it was fresh.
+dpr-test-238	The humans	True	0	the robots	False	26	they	45	The humans were afraid of the robots because they were weak.
+dpr-test-239	The humans	False	0	the robots	True	26	they	45	The humans were afraid of the robots because they were strong.
+dpr-test-240	The Playstation	True	0	the Xbox	False	33	it	50	The Playstation is outperforming the Xbox because it has better games.
+dpr-test-241	The Playstation	False	0	the Xbox	True	33	it	50	The Playstation is outperforming the Xbox because it is prone to hardware failure.
+dpr-test-242	Sean	True	0	Watson	False	20	he	58	Sean is better than Watson at anaphora resolution because he can naturally understand natural language.
+dpr-test-243	Sean	False	0	Watson	True	20	he	58	Sean is better than Watson at anaphora resolution because he has trouble understanding natural language.
+dpr-test-244	Sentient machines	True	0	all humans	False	28	they	47	Sentient machines will kill all humans because they have giant death rays.
+dpr-test-245	Sentient machines	False	0	all humans	True	28	they	47	Sentient machines will kill all humans because they are inferior beings.
+dpr-test-246	Watson	True	0	Ken	False	12	he	36	Watson beat Ken at Jeopardy because he is a superior machine.
+dpr-test-247	Watson	False	0	Ken	True	12	he	36	Watson beat Ken at Jeopardy because he is an inferior human.
+dpr-test-248	Larry	True	0	Page	False	14	him	37	Larry trusted Page because Bill told him to.
+dpr-test-249	Larry	False	0	Page	True	14	him	38	Larry trusted Page because Bill knows him.
+dpr-test-250	Cosby	False	0	Jay	True	16	him	46	Cosby supported Jay because Thea really liked him.
+dpr-test-251	Cosby	True	0	Jay	False	16	him	39	Cosby supported Jay because Thea asked him to.
+dpr-test-252	Jace	False	0	Jesus	True	11	he	25	Jace loves Jesus because he died for him.
+dpr-test-253	Jace	True	0	Jesus	False	11	he	25	Jace loves Jesus because he tasted his goodness.
+dpr-test-254	Olga	False	0	Sara	True	12	she	25	Olga kicked Sara because she woke her up.
+dpr-test-255	Olga	True	0	Sara	False	12	she	25	Olga kicked Sara because she was drunk.
+dpr-test-256	Nola	False	0	Christina	True	10	she	40	Nola shot Christina in the head because she threatened to take all of her money.
+dpr-test-257	Nola	True	0	Christina	False	10	she	40	Nola shot Christina in the head because she thought it was a good idea to kill a human being.
+dpr-test-258	Rebecca	True	0	Dina	False	15	she	28	Rebecca kissed Dina because she loves her.
+dpr-test-259	Rebecca	False	0	Dina	True	15	she	28	Rebecca kissed Dina because she is a sweet girl.
+dpr-test-260	Mom	False	0	Sara	True	12	she	43	Mom brought Sara from school early because she was sick.
+dpr-test-261	Mom	True	0	Sara	False	12	she	43	Mom brought Sara from school early because she had an early meeting.
+dpr-test-262	Gorden	False	0	his brother	True	18	he	38	Gorden got mad at his brother because he forgot to bring him chocolate.
+dpr-test-263	Gorden	True	0	his brother	False	18	he	38	Gorden got mad at his brother because he did not get good sleep.
+dpr-test-264	John	True	0	Bill	False	11	he	24	John asked Bill because he was confused.
+dpr-test-265	John	False	0	Bill	True	11	he	24	John asked Bill because he knew the answer.
+dpr-test-266	John	True	0	Bill	False	11	he	24	John rated Bill because he was the judge.
+dpr-test-267	John	False	0	Bill	True	11	he	24	John rated Bill because he was a contestant.
+dpr-test-268	John	True	0	Bill	False	12	he	25	John called Bill because he needed someone to talk to.
+dpr-test-269	John	False	0	Bill	True	12	he	25	John called Bill because he was a good listener.
+dpr-test-270	John	True	0	Bill	False	12	he	25	John killed Bill because he was fighting for his life.
+dpr-test-271	John	False	0	Bill	True	12	he	25	John killed Bill because he was a zombie.
+dpr-test-274	Mary	False	0	a little lamb	True	9	she	29	Mary had a little lamb until she was stolen by Cindy.
+dpr-test-275	Mary	True	0	a little lamb	False	9	she	29	Mary had a little lamb until she had lamb chops for dinner.
+dpr-test-276	The wolves	True	0	the deer	False	18	they	35	The wolves chased the deer because they were predators.
+dpr-test-277	The wolves	False	0	the deer	True	18	they	35	The wolves chased the deer because they were prey.
+dpr-test-278	The girls	True	0	the apples	False	14	they	33	The girls ate the apples because they were hungry.
+dpr-test-279	The girls	False	0	the apples	True	14	they	33	The girls ate the apples because they were ripe.
+dpr-test-280	The minister	True	0	King George	False	24	he	39	The minister befriended King George so he would not get beheaded.
+dpr-test-281	The minister	False	0	King George	True	24	he	39	The minister befriended King George so he could have some friends.
+dpr-test-282	Mary	False	0	Joe	True	11	she	23	Mary likes Joe because she has a cool name.
+dpr-test-283	Mary	True	0	Joe	False	11	she	23	Mary likes Joe because she likes females.
+dpr-test-284	The bat	True	0	the ball	False	12	it	29	The bat hit the ball because it flew in the way of the trajectory.
+dpr-test-285	The bat	False	0	the ball	True	12	it	29	The bat hit the ball because it flew straight at the poor animal.
+dpr-test-286	The knife	True	0	the flesh	False	25	it	43	The knife sliced through the flesh because it was sharp.
+dpr-test-287	The knife	False	0	the flesh	True	25	it	43	The knife sliced through the flesh because it was tender.
+dpr-test-288	The boy	True	0	his father	False	16	he	48	The boy lied to his father about the crime, but he still felt uneasy and was slowly overcome with guilt.
+dpr-test-289	The boy	False	0	his father	True	16	he	48	The boy lied to his father about the crime, but he still felt uneasy and was slowly overcome with curiosity.
+dpr-test-290	The apple wine	True	0	my mouth	False	23	it	40	The apple wine entered my mouth because it tastes good.
+dpr-test-291	The apple wine	False	0	my mouth	True	23	it	40	The apple wine entered my mouth because it was not full.
+dpr-test-292	The boy	True	0	his friend	False	15	he	39	The boy helped his friend move because he was going to be free all day.
+dpr-test-293	The boy	False	0	his friend	True	15	he	39	The boy helped his friend move because he was going to be busy all day.
+dpr-test-294	The boy	True	0	his friend	False	25	he	44	The boy secretly watched his friend because he wanted the secret information.
+dpr-test-295	The boy	False	0	his friend	True	25	he	44	The boy secretly watched his friend because he had the secret information.
+dpr-test-296	The bug	True	0	the light	False	27	it	42	The bug was flying towards the light, but it was exterminated prematurely.
+dpr-test-297	The bug	False	0	the light	True	27	it	42	The bug was flying towards the light, but it was extinguished prematurely.
+dpr-test-298	The man	True	0	the boy	False	16	he	35	The man offered the boy candy, but he had no candy.
+dpr-test-299	The man	False	0	the boy	True	16	he	35	The man offered the boy candy, but he got no candy.
+dpr-test-300	Paul	True	0	Jack	False	17	he	28	Paul screamed at Jack since he was angry.
+dpr-test-301	Paul	False	0	Jack	True	17	he	28	Paul screamed at Jack since he was ignoring him.
+dpr-test-302	The baby cow	True	0	the farmer	False	22	he	41	The baby cow cried at the farmer because he wanted milk.
+dpr-test-303	The baby cow	False	0	the farmer	True	22	he	41	The baby cow cried at the farmer because he had milk.
+dpr-test-304	My teacher	False	0	a student	True	17	he	53	My teacher asked a student to make sentences because he was late to class.
+dpr-test-305	My teacher	True	0	a student	False	17	he	53	My teacher asked a student to make sentences because he wanted to see him write.
+dpr-test-306	The gym teachers	True	0	the students	False	25	they	46	The gym teachers trained the students because they wanted to teach them discipline.
+dpr-test-307	The gym teachers	False	0	the students	True	25	they	46	The gym teachers trained the students because they wanted to become better players.
+dpr-test-308	The Skyline	True	0	the F-150	False	31	it	49	The Skyline drifts better than the F-150 because it is well balanced.
+dpr-test-309	The Skyline	False	0	the F-150	True	31	it	49	The Skyline drifts better than the F-150 because it is not meant to drift.
+dpr-test-310	The city council	False	0	the construction workers	True	37	they	70	The city council granted a permit to the construction workers because they were well qualified.
+dpr-test-311	The city council	True	0	the construction workers	False	37	they	70	The city council granted a permit to the construction workers because they were elected to encourage business.
+dpr-test-312	Rick Perry	False	0	 Mitt Romney	False	33	he	64	Rick Perry is doing stronger than Mitt Romney in the polls, but he is coming back as a strong candidate.
+dpr-test-313	Rick Perry	True	0	 Mitt Romney	False	33	he	64	Rick Perry is doing stronger than Mitt Romney in the polls, but he is confident to maintain the lead.
+dpr-test-314	The Detroit Lions	True	0	the Dallas Cowboys	False	23	they	50	The Detroit Lions beat the Dallas Cowboys because they had more desire to win.
+dpr-test-315	The Detroit Lions	False	0	the Dallas Cowboys	True	23	they	50	The Detroit Lions beat the Dallas Cowboys because they were unprepared.
+dpr-test-316	James Cameron	True	0	Michael Bay	False	38	his	58	James Cameron is more successful than Michael Bay because his movies sell more worldwide.
+dpr-test-317	James Cameron	False	0	Michael Bay	True	38	his	58	James Cameron is more successful than Michael Bay because his movies do not create as much hype.
+dpr-test-318	Audrey Hepburn	True	0	Katherine Hepburn	False	37	she	63	Audrey Hepburn made more movies than Katherine Hepburn because she was pretty and talented.
+dpr-test-319	Audrey Hepburn	False	0	Katherine Hepburn	True	37	she	63	Audrey Hepburn made more movies than Katherine Hepburn because she was not as good at acting.
+dpr-test-320	The Penguins	False	0	the Flyers	True	38	they	72	The Penguins scored two goals against the Flyers in two minutes because they were not concentrating.
+dpr-test-321	The Penguins	True	0	the Flyers	False	38	they	72	The Penguins scored two goals against the Flyers in two minutes because they are more skilled.
+dpr-test-322	Taylor Swift	True	0	Beyonce	False	44	her	86	Taylor Swift is higher in record sales over Beyonce because more people can relate to her music.
+dpr-test-323	Taylor Swift	False	0	Beyonce	True	44	her	92	Taylor Swift is higher in record sales over Beyonce because people are not passionate about her music.
+dpr-test-324	Fox News	True	0	CNN	False	41	they	51	Fox News is more popular in ratings than CNN since they are more interesting.
+dpr-test-325	Fox News	False	0	CNN	True	41	they	51	Fox News is more popular in ratings than CNN since they are boring.
+dpr-test-326	The Autobots	True	0	the Decepticons	False	25	they	47	The Autobots try to stop the Decepticons since they want the world to live in peace.
+dpr-test-327	The Autobots	False	0	the Decepticons	True	25	they	47	The Autobots try to stop the Decepticons since they want to destroy the world.
+dpr-test-328	Californians	True	0	New Yorkers	False	29	they	49	Californians are better than New Yorkers because they have Hollywood.
+dpr-test-329	Californians	False	0	New Yorkers	True	29	they	49	Californians are better than New Yorkers because they do not have Hollywood lots to produce movies.
+dpr-test-330	The Mongolians	True	0	the Chinese	False	24	they	44	The Mongolians attacked the Chinese because they are always eager for war.
+dpr-test-331	The Mongolians	False	0	the Chinese	True	24	they	44	The Mongolians attacked the Chinese because they are pacifists.
+dpr-test-332	Jupiter	True	0	the Earth	False	23	it	38	Jupiter is bigger than the Earth, but it is lighter due to being mostly gas.
+dpr-test-333	Jupiter	False	0	the Earth	True	23	it	38	Jupiter is bigger than the Earth, but it is heavier due to being solid.
+dpr-test-334	Brick	True	0	clay	False	21	they	54	Brick is better than clay for building houses because they are much stronger building materials.
+dpr-test-335	Brick	False	0	clay	True	21	they	54	Brick is better than clay for building houses because they become weak from water.
+dpr-test-336	The Dallas Cowboys	True	0	the Saints	False	59	they	78	"The Dallas Cowboys are more successful as a franchise than the Saints because they are considered ""America's Team""."
+dpr-test-337	The Dallas Cowboys	False	0	the Saints	True	59	they	78	The Dallas Cowboys are more successful as a franchise than the Saints because they do not have the same amount of market value.
+dpr-test-338	The US government	True	0	Iraq	False	34	they	47	The US government declared war on Iraq because they were responding to their attack on US soil.
+dpr-test-339	The US government	False	0	Iraq	True	34	they	47	The US government declared war on Iraq because they attacked on US soil.
+dpr-test-340	The Home Owners Association	False	0	the Pittsburg family	True	50	they	92	The Home Owners Association denied the request by the Pittsburg family for a new shed since they failed to pay the annual fee.
+dpr-test-341	The Home Owners Association	True	0	the Pittsburg family	False	50	they	92	The Home Owners Association denied the request by the Pittsburg family for a new shed since they felt it would not be good for the community.
+dpr-test-342	Fleece	True	0	cotton	False	25	they	38	Fleece feels better than cotton since they are much softer.
+dpr-test-343	Fleece	False	0	cotton	True	25	they	38	Fleece feels better than cotton since they are of worse quality.
+dpr-test-344	The Police	True	0	the protesters	False	27	they	58	The Police feared allowing the protesters to organize, so they denied their ability to gather.
+dpr-test-345	The Police	False	0	the protesters	True	27	they	59	The Police feared allowing the protesters to organize, but they decided to organize anyway.
+dpr-test-346	The government	True	0	oil companies	False	39	they	89	The government revoked the ability for oil companies to drill in the United States since they are trying to protect the environment.
+dpr-test-347	The government	False	0	oil companies	True	39	they	89	The government revoked the ability for oil companies to drill in the United States since they are trying to drill for more oil reserves.
+dpr-test-348	The Military Police	False	0	the army recruits	True	26	they	62	The Military Police threw the army recruits in the brig since they were causing a distrubance in the neighboring town.
+dpr-test-349	The Military Police	True	0	the army recruits	False	26	they	62	The Military Police threw the army recruits in the brig since they were enforcing the rules of being in the army.
+dpr-test-350	Harvey Dent	False	0	the Batman	True	19	he	58	Harvey Dent blames the Batman for losing his love because he did not save her.
+dpr-test-351	Harvey Dent	True	0	the Batman	False	19	he	58	Harvey Dent blames the Batman for losing his love because he was saved instead of his girlfriend.
+dpr-test-352	Intel	True	0	AMD	False	27	they	61	Intel performs better than AMD in the processing market, but they do not do as well in the graphics market.
+dpr-test-353	Intel	False	0	AMD	True	27	they	61	Intel Performs better than AMD in the processing market, but they are more successful in the graphics market instead.
+dpr-test-354	The football players	True	0	the NFL organization	False	44	they	70	The football players went on strike against the NFL organization, but they will play again when their demands are met.
+dpr-test-355	The football players	False	0	the NFL organization	True	44	they	70	The football players went on strike against the NFL organization, but they will consider their demands to send the strike.
+dpr-test-356	Disney World	True	0	Six Flags	False	53	they	69	Disney World offers a much wider array of rides than Six Flags since they have a much larger budget due to their merchandising.
+dpr-test-357	Disney World	False	0	Six Flags	True	53	they	69	Disney World offers a much wider array of rides than Six Flags since they are more limited on budget due to not having other sources of revenue.
+dpr-test-358	South Korea	False	0	North Korea	True	26	they	46	South Korea does not like North Korea because they are constantly threatening their peace.
+dpr-test-359	South Korea	True	0	North Korea	False	26	they	46	South Korea does not like North Korea because they are always forced to defend their peace.
+dpr-test-360	The prosecutor	True	0	the defendants	False	34	they	55	The prosecutor viciously attacked the defendants since they are trying to convict them of the crime.
+dpr-test-361	The prosecutor	False	0	the defendants	True	34	they	55	The prosecutor viciously attacked the defendants since they are trying to convict their client of a crime.
+dpr-test-362	The ruling class	True	0	the citizens	False	24	they	52	The ruling class treats the citizens poorly because they are superior.
+dpr-test-363	The ruling class	False	0	the citizens	True	24	they	52	The ruling class treats the citizens poorly because they are inferior.
+dpr-test-364	Bill Gates	True	0	Steve Jobs	False	25	he	41	Bill Gates is similar to Steve Jobs, but he is the previous CEO of Microsoft.
+dpr-test-365	Bill Gates	False	0	Steve Jobs	True	25	he	41	Bill Gates is similar to Steve Jobs, but he is the previous CEO of Apple.
+dpr-test-366	Bill Clinton	True	0	George Bush	False	32	he	51	Bill Clinton speaks better than George Bush, since he is a practiced orator.
+dpr-test-367	Bill Clinton	False	0	George Bush	True	32	he	51	Bill Clinton speaks better than George Bush, since he is not a practiced orator.
+dpr-test-368	Federer	True	0	Nadal	False	26	he	38	Federer consistently beat Nadal since he was the better tennis player.
+dpr-test-369	Federer	False	0	Nadal	True	26	he	38	Federer consistently beat Nadal since he was the worse tennis player.
+dpr-test-370	Internet Explorer	True	0	Firefox	False	62	they	27	Internet Explorer believes they have less security holes than Firefox, but they conducted the tests themselves.
+dpr-test-371	Internet Explorer	False	0	Firefox	True	62	they	27	Internet Explorer believes they have less security holes than Firefox, but they do not trust Microsoft's test results.
+dpr-test-372	President Clinton	True	0	Roger Clinton	False	27	he	49	President Clinton pardoned Roger Clinton because he wanted to free his half-brother.
+dpr-test-373	President Clinton	False	0	Roger Clinton	True	27	he	49	President Clinton pardoned Roger Clinton because he was the president's half-brother.
+dpr-test-374	Sony	False	0	90000 users	True	21	they	61	Sony recently locked 90000 users from their accounts because they had been been compromised.
+dpr-test-375	Sony	True	0	90000 users	False	21	they	61	Sony recently locked 90000 users from their accounts because they had hackers compromise their customer's information.
+dpr-test-376	Harley	True	0	Dyna	False	18	she	31	Harley hides from Dyna because she is afraid of her.
+dpr-test-377	Harley	False	0	Dyna	True	18	she	31	Harley hides from Dyna because she is scary.
+dpr-test-378	Toyota	False	0	Lexus	True	28	they	35	Toyota has the luxury brand Lexus: they are built for the rich.
+dpr-test-379	Toyota	True	0	Lexus	False	28	they	44	Toyota has the luxury brand Lexus, although they typically sell for the average consumer.
+dpr-test-380	Batman	True	0	the Joker	False	34	he	49	Batman constantly tries to arrest the Joker, but he is also a vigilante.
+dpr-test-381	Batman	False	0	the Joker	True	34	he	49	Batman constantly tried to arrest the Joker, but he always manages to get out.
+dpr-test-382	Netflix	True	0	Qwikster	False	49	they	63	Netflix recently split their DVD service to site Qwikster, but they quickly removed the move due to public backlash.
+dpr-test-383	Netflix	False	0	Qwikster	True	49	they	63	Netflix recently split their DVD service to site Qwikster, but they had a short lived life for the site.
+dpr-test-384	Canada	True	0	the United Kingdom	False	22	they	46	Canada is bigger than the United Kingdom, but they do not have the population to back it up.
+dpr-test-385	Canada	False	0	the United Kingdom	True	22	they	46	Canada is bigger than the United Kingdom, but they have a much larger population.
+dpr-test-386	Gamers	True	0	athletes	False	52	they	67	Gamers are generally perceived as nerds compared to athletes since they are stereotypically anti-social.
+dpr-test-387	Gamers	False	0	athletes	True	52	they	67	Gamers are generally perceived as nerds compared to athletes since they are stereotypically social and in good shape.
+dpr-test-388	Ray William Johnson	False	0	NigaHiga	True	30	he	67	Ray William Johnson surpassed NigaHiga in Youtube subscribers, but he considers that being number two is still a huge achievement.
+dpr-test-389	Ray William Johnson	True	0	NigaHiga	False	30	he	67	Ray William Johnson surpassed NigaHiga in Youtube subscribers, but he wants to increase the gap even more.
+dpr-test-390	The management	True	0	the employees	False	35	they	55	The management provided bonuses to the employees since they wanted to keep their workers happy at the company.
+dpr-test-391	The management	False	0	the employees	True	35	they	55	The management provided bonuses to the employees since they need to be kept happy to stay productive.
+dpr-test-392	The disease center	True	0	the people	False	31	they	48	The disease center quarantined the people since they were afraid of the outbreak spreading.
+dpr-test-393	The disease center	False	0	the people	True	31	they	50	The disease center quarantined the people because they may be infected.
+dpr-test-394	The security team	True	0	the scientists	False	25	they	68	The security team locked the scientists inside the building because they had to keep confidential information inside.
+dpr-test-395	The security team	False	0	the scientists	True	25	they	66	The security team locked the scientists inside the building since they had access to confidential materials that need to be kept secret.
+dpr-test-396	The FDA	True	0	corrupt doctors	False	40	they	62	The FDA revoked the medical licenses of corrupt doctors since they enforce strict medical guidelines.
+dpr-test-397	The FDA	False	0	corrupt doctors	True	40	they	64	The FDA revoked the medical licenses of corrupt doctors because they have been improperly issuing drugs.
+dpr-test-398	Christian Bale	True	0	the man	False	39	he	76	Christian Bale once lost his temper at the man holding his lighting because he has a short temper.
+dpr-test-399	Christian Bale	False	0	the man	True	39	he	73	Christian Bale once lost his temper at the man holding his lighting, but he did not do anything that earned getting yelled at.
+dpr-test-400	Andrea	False	0	Lindsay	True	43	she	57	Andrea threw a promotion party in honor of Lindsay since she recently got promoted.
+dpr-test-401	Andrea	True	0	Lindsay	False	43	she	59	Andrea threw a promotion party in honor of Lindsay because she wanted to do something special for her.
+dpr-test-402	Michael Phelps	True	0	Judge Louis	False	28	he	48	Michael Phelps was fined by Judge Louis because he was caught with illegal drugs.
+dpr-test-403	Michael Phelps	False	0	Judge Louis	True	28	he	48	Michael Phelps was fined by Judge Louis because he has to uphold federal law.
+dpr-test-404	Lloyd	False	0	Roger	True	26	he	57	Lloyd traded his truck to Roger for his motorcycle since he wanted to have a truck.
+dpr-test-405	Lloyd	True	0	Roger	False	26	he	57	Lloyd traded his truck to Roger for his motorcycle since he preferred a small vehicle.
+dpr-test-406	The hotel staff	True	0	the royal family	False	26	they	49	The hotel staff tended to the royal family since they needed to keep them satisfied as occupants.
+dpr-test-407	The hotel staff	False	0	the royal family	True	26	they	53	The hotel staff tended to the royal family, however, they felt the service was unsatisfactory.
+dpr-test-408	Donald Trump	True	0	Luigi	False	32	he	47	Donald Trump fired his servant, Luigi, because he felt his service was below average.
+dpr-test-409	Donald Trump	False	0	Luigi	True	32	he	43	Donald Trump fired his servant, Luigi, but he can find another job elsewhere.
+dpr-test-410	The teaching staff	False	0	the students	True	35	they	75	The teaching staff wanted to treat the students to a special lunch because they did so well on their standardized tests.
+dpr-test-411	The teaching staff	True	0	the students	False	35	they	71	The teaching staff wanted to treat the students to a special lunch but they did not have enough money in the budget.
+dpr-test-412	Some actors	True	0	stunt doubles	False	64	they	84	Some actors choose to perform their own stunts instead of using stunt doubles since they like to keep it as authentic as possible.
+dpr-test-413	Some actors	False	0	stunt doubles	True	64	they	87	Some actors choose to perform their own stunts instead of using stunt doubles although they are professionals who specialize in stunts.
+dpr-test-414	Tatoo artists	True	0	their customers	False	54	they	79	Tatoo artists specialize in creating works of arts on their customers, because they are paid professionals in their field.
+dpr-test-415	Tatoo artists	False	0	their customers	True	54	they	77	Tatoo artists specialize in creating works of arts on their customers, hence they are willing to pay well for these pieces of work.
+dpr-test-416	The drug cartel	False	0	the local population	True	36	they	84	The drug cartel enlists the help of the local population to work their fields since they are considered cheap labor.
+dpr-test-417	The drug cartel	True	0	the local population	False	36	they	84	The drug cartel enlists the help of the local population to work their fields since they need cheap labor to maximize their profits.
+dpr-test-418	The Samurais	True	0	pirates	False	35	they	79	The Samurais respected honor while pirates have a disregard for honor, because they hold true to the policy of fighting with honor.
+dpr-test-419	The Samurais	False	0	pirates	True	35	they	77	The Samurais respected honor while pirates have a disregard for honor, since they are only interested in increasing their wealth.
+dpr-test-420	JP Morgan Bank	True	0	Bank of America	False	90	they	112	JP Morgan Bank developed a mobile banking application which gives an edge over competitor Bank of America since they appeal well consumers who want accessible banking.
+dpr-test-421	JP Morgan Bank	False	0	Bank of America	True	90	they	111	JP Morgan Bank developed a mobile banking application which gives an edge over competitor Bank of America, but they will probably develop their own mobile application soon as well.
+dpr-test-422	The Russian Syndicate	True	0	their lower members	False	48	they	71	The Russian Syndicate decided to remove some of their lower members so they could keep their operations as secret as possible.
+dpr-test-423	The Russian Syndicate	False	0	their lower members	True	48	they	76	The Russian Syndicate decided to remove some of their lower members because they knew too much about their operations.
+dpr-test-424	The SWAT team	True	0	the terrorists	False	50	they	105	The SWAT team moved in on the compound to prevent the terrorists from launching a deadly missile because they wanted to preserve the lives of innocents.
+dpr-test-425	The SWAT team	False	0	the terrorists	True	50	they	105	The SWAT team moved in on the compound to prevent the terrorists from launching a deadly missile because they were trying to terrorize the global population.
+dpr-test-426	Speed boats	True	0	row boats	False	52	they	88	Speed boats need to pass strict tests for use while row boats have no guidelines, since they are more prone to mechanical failures due to their moving parts.
+dpr-test-427	Speed boats	False	0	row boats	True	52	they	89	Speed boats need to pass strict tests for use while row boats have no guidelines because they are powered by paddles instead of mechanical engines.
+dpr-test-428	Jane Bingum	True	0	Claire	False	46	she	57	Jane Bingum presented strong evidence against Claire, so she would be able to win her case.
+dpr-test-429	Jane Bingum	False	0	Claire	True	46	she	58	Jane Bingum presented strong evidence against Claire, but she may present a strong defense on her part.
+dpr-test-430	Michael	True	0	his father	False	61	he	96	Michael decided to freeze himself in cryo-stasis even though his father was against it, because he hopes to be unfrozen in the future when there is a cure available.
+dpr-test-431	Michael	False	0	his father	True	61	he	91	Michael decided to freeze himself in cryo-stasis even though his father was against it, so he tried to convince him not to do it.
+dpr-test-432	Trick Or Treaters	True	0	Church	False	72	they	85	Trick Or Treaters are celebrating the holiday earlier during the day at Church since they are encouraged to do it during the day and among friends for safety reasons.
+dpr-test-433	Trick Or Treaters	False	0	Church	True	72	they	84	Trick Or Treaters are celebrating the holiday earlier during the day at Church, but they cannot convince everybody to do it during the day.
+dpr-test-434	Research studies	False	0	Netflix	True	40	they	113	Research studies recently revealed that Netflix consumes over 37 percent of the world's internet bandwidth since they need that much due to high demand of their streaming services.
+dpr-test-435	Research studies	True	0	Netflix	False	40	they	112	Research studies recently revealed that Netflix consumes over 37 percent of the world's internet bandwidth, but they may not be entirely accurate now due to recent changes in Netflix subscribers.
+dpr-test-436	Captain Picard	True	0	Commander Riker	False	35	he	57	Captain Picard tends to confide in Commander Riker since he wants to ensure he develops into a fine captain one day.
+dpr-test-437	Captain Picard	False	0	Commander Riker	True	35	he	59	Captain Picard tends to confide in Commander Riker because he needs to soak up as much experience as he can.
+dpr-test-438	Data	True	0	Acting Ensign Wesley	False	64	he	91	Data is an android who can learn new materials much faster than Acting Ensign Wesley since he has the ability to learn vasts amount of information quickly into his database.
+dpr-test-439	Data	False	0	Acting Ensign Wesley	True	64	he	94	Data is an android who can learn new materials much faster than Acting Ensign Wesley, because he does not have an electronic brain to learn as quickly.
+dpr-test-440	The Next Generation	True	0	Trekkies	False	41	they	58	The Next Generation was well received by Trekkies because they stayed true to the roots established in the first Star Trek.
+dpr-test-441	The Next Generation	False	0	Trekkies	True	41	they	55	The Next Generation was well received by Trekkies, but they will always perceive the first Star Trek to be the best.
+dpr-test-442	Pei Wei	True	0	sesame chicken	False	14	they	55	Pei Wei sells sesame chicken as a signature dish since they have much demand for this particular dish.
+dpr-test-443	Pei Wei	False	0	sesame chicken	True	14	they	53	Pei Wei sells sesame chicken as a signature dish, so they are constantly picked as an order.
+dpr-test-444	Lois	True	0	her daughter	False	20	she	41	Lois was scolded by her daughter because she was accused of being a terrible mother.
+dpr-test-445	Lois	False	0	her daughter	True	20	she	37	Lois was scolded by her daughter, so she thought about how she could be better.
+dpr-test-446	The priests	True	0	the suspected witches	False	50	they	72	The priests quoted the words of the Bible for all the suspected witches they found, since they needed to quote holy words to rid the evil.
+dpr-test-447	The priests	False	0	the suspected witches	True	50	they	72	The priests quoted the words of the Bible for all the suspected witches they found, since they feared the words of the Bible.
+dpr-test-448	The victims of the Black Plague	True	0	the witches	False	39	they	81	The victims of the Black Plague blamed the witches for causing the curse because they did not understand diseases at the time.
+dpr-test-449	The victims of the Black Plague	False	0	the witches	True	39	they	78	The victims of the Black Plague blamed the witches for causing the curse, but they were falsely accused.
+dpr-test-450	Two deserted crusaders	True	0	the priests	False	54	they	71	Two deserted crusaders agreed to transport a girl for the priests, but they agreed in exchange for being pardoned.
+dpr-test-451	Two deserted crusaders	False	0	the priests	True	54	they	73	Two deserted crusaders agreed to transport a girl for the priests, since they needed more fellow priests to assist in removing the evil from her.
+dpr-test-452	The alter boy	True	0	Knight Mordron	False	23	he	61	The alter boy assisted Knight Mordron in his mission because he hopes he will get knighted afterwards.
+dpr-test-453	The alter boy	False	0	Knight Mordron	True	23	he	58	The alter boy assisted Knight Mordron in his mission, but he did not want his help.
+dpr-test-454	King James	False	0	Prince Henry	True	42	he	63	King James eagerly awaited the arrival of Prince Henry because he was expected to propose to his daughter.
+dpr-test-455	King James	True	0	Prince Henry	False	42	he	58	King James eagerly awaited the arrival of Prince Henry so he prepared many celebrations to welcome him.
+dpr-test-456	Crusader Andrews	True	0	Crusader Christopher	False	35	he	64	Crusader Andrews saved the life of Crusader Christopher because he did not want to see him die.
+dpr-test-457	Crusader Andrews	False	0	Crusader Christopher	True	35	he	60	Crusader Andrews saved the life of Crusader Christopher, so he thanked him personally with his sword afterwards.
+dpr-test-458	The blacksmith	True	0	the knight	False	47	he	66	The blacksmith refused to repair the armor for the knight because he only does work if paid upfront.
+dpr-test-459	The blacksmith	False	0	the knight	True	47	he	66	The blacksmith refused to repair the armor for the knight because he did not have any money to pay with.
+dpr-test-460	The Eagles	True	0	the Cowboys	False	42	they	73	The Eagles managed to completely dominate the Cowboys this weekend since they were much stronger in handling the ball.
+dpr-test-461	The Eagles	False	0	the Cowboys	True	42	they	72	The Eagles managed to completely dominate the Cowboys this weekend, but they were able to at least keep it from being a shutout.
+dpr-test-462	Mel	True	0	a collector named Bohr	False	24	he	55	Mel got in trouble with a collector named Bohr because he lost a huge sum of money due to his gambling habit.
+dpr-test-463	Mel	False	0	a collector named Bohr	True	24	he	51	Mel got in trouble with a collector named Bohr, so he tracked him down to try to collect all the owed money.
+dpr-test-464	AMD	True	0	the New Guiness Book of Records	False	42	they	83	AMD recently managed to break a record in the New Guiness Book of Records, because they managed to overclock their processor to unheard heights.
+dpr-test-465	AMD	False	0	the New Guiness Book of Records	True	42	they	78	AMD recently managed to break a record in the New Guiness Book of Records, so they immortalized them in their record keeping.
+dpr-test-466	The U.S.S Enterprise	True	0	a sister ship	False	37	they	56	The U.S.S Enterprise tried to assist a sister ship, but they arrived too late to save them.
+dpr-test-467	The U.S.S Enterprise	False	0	a sister ship	True	37	they	56	The U.S.S Enterprise tried to assist a sister ship, but they did not receive help quick enough to prevent their demise.
+dpr-test-468	The Prince of Wales	True	0	William	False	29	he	41	The Prince of Wales knighted William, so he gave his son the accolade with a sword.
+dpr-test-469	The Prince of Wales	False	0	William	True	29	he	45	The Prince of Wales knighted William because he could not compete in the tournament without being of nobility.
+dpr-test-470	Ryan Higa	True	0	Kev Jumbo	False	46	he	64	Ryan Higa sometimes guest stars in videos for Kev Jumbo because he wants his friend's videos to succeed as well.
+dpr-test-471	Ryan Higa	False	0	Kev Jumbo	True	46	he	59	Ryan Higa sometimes guest stars in videos for Kev Jumbo so he is beginning to gather a bigger following due to his friend's help.
+dpr-test-472	Planet 343's sandstorm	True	0	the inhabitants	False	30	they	66	Planet 343's sandstorm forces the inhabitants underground because they have winds of upwards to 50 mph.
+dpr-test-473	Planet 343's sandstorm	False	0	the inhabitants	True	30	they	63	Planet 343's sandstorm forces the inhabitants underground, but they have plenty of food sources stored away.
+dpr-test-474	The Marines	False	0	the aliens	True	39	they	58	The Marines are considerably afraid of the aliens because they are known to hunt down humans.
+dpr-test-475	The Marines	True	0	the aliens	False	39	they	55	The Marines are considerably afraid of the aliens, but they will still use their discipline to overcome their fears.
+dpr-test-476	The children	False	0	the adults	True	55	they	72	The children learned how to kill poisonous snakes from the adults since they have experience surviving in the outdoors.
+dpr-test-477	The children	True	0	the adults	False	55	they	69	The children learned how to kill poisonous snakes from the adults so they can also survive in the wild by themselves.
+dpr-test-478	The public school board of educators	False	0	the students	True	76	they	95	The public school board of educators initiated a physical education plan on the students since they scored so low on the health and fitness standardized test.
+dpr-test-479	The public school board of educators	True	0	the students	False	76	they	97	The public school board of educators initiated a physical education plan on the students so that they could help them become healthy again.
+dpr-test-480	Range Rover	True	0	thousands of New Yorkers	False	75	they	106	Range Rover recently revealed their new lineup of cars at Times Square for thousands of New Yorkers since they are advertising their new high end models.
+dpr-test-481	Range Rover	False	0	thousands of New Yorkers	True	75	they	103	Range Rover recently revealed their new lineup of cars at Times Square for thousands of New Yorkers so they would be enticed to purchase their cars.
+dpr-test-482	Raiden	True	0	Liu Kang	False	34	he	74	Raiden could not follow and guide Liu Kang in the world of darkness since he could not enter this realm without breaking the rules.
+dpr-test-483	Raiden	False	0	Liu Kang	True	34	he	73	Raiden could not follow and guide Liu Kang in the world of darkness, but he will be able to find another guide instead.
+dpr-test-484	Banks	True	0	new credit card applicants	False	37	they	70	Banks usually offer bonus points for new credit card applicants since they want them to specifically bank with them.
+dpr-test-485	Banks	False	0	new credit card applicants	True	37	they	72	Banks usually offer bonus points for new credit card applicants because they are often enticed by free offerings.
+dpr-test-486	Hair Stylists	False	0	the Cowboy's Cheerleaders	True	26	they	73	Hair Stylists transformed the Cowboy's Cheerleaders into beauties, since they need to look top notch for the game.
+dpr-test-487	Hair Stylists	True	0	the Cowboy's Cheerleaders	False	26	they	70	Hair Stylists transformed the Cowboy's Cheerleaders into beauties, so they put much product into their hair.
+dpr-test-488	The patrons	False	0	the chefs	True	37	they	65	The patrons enjoyed the food made by the chefs immensely because they made the food with exquisite sauces.
+dpr-test-489	The patrons	True	0	the chefs	False	37	they	61	The patrons enjoyed the food made by the chefs immensely, so they paid very well to enjoy this meal.
+dpr-test-490	Beowulf	True	0	Grendell	False	24	he	53	Beowulf arrived to slay Grendell for the kingdom, so he and his men went out to the caves to locate him.
+dpr-test-491	Beowulf	False	0	Grendell	True	24	he	54	Beowulf arrived to slay Grendell for the kingdom, but he is very difficult to slay due to his demon magic.
+dpr-test-492	Paypal	False	0	disgruntled users	True	56	they	80	Paypal has to settle millions of disputes every year by disgruntled users since they are sometimes a victim of fraud from purchasing through the internet.
+dpr-test-493	Paypal	True	0	disgruntled users	False	56	they	82	Paypal has to settle millions of disputes every year by disgruntled users because they provide a transaction protection policy.
+dpr-test-494	The slaves	True	0	the nobles	False	44	they	61	The slaves were forced to do the bidding of the nobles since they have no rights.
+dpr-test-495	The slaves	False	0	the nobles	True	44	they	58	The slaves were forced to do the bidding of the nobles so they do not have to do any of the hard labor.
+dpr-test-496	Scientists	True	0	men	False	49	they	82	Scientists have created a serum which transforms men into super soldiers, because they needed to create an unstoppable army.
+dpr-test-497	Scientists	False	0	men	True	49	they	78	Scientists have created a serum which transforms men into super soldiers, but they may experience side effects.
+dpr-test-498	The prisoners	True	0	the German forces	False	35	they	59	The prisoners were held captive by the German forces since they were captured in the last battle.
+dpr-test-499	The prisoners	False	0	the German forces	True	35	they	59	The prisoners were held captive by the German forces since they needed to gather intelligence from them.
+dpr-test-500	Captain America	True	0	Michael	False	36	he	53	Captain America lost a good friend, Michael, because he could not catch him before falling.
+dpr-test-501	Captain America	False	0	Michael	True	36	he	53	Captain America lost a good friend, Michael, because he was killed in an accident.
+dpr-test-502	Neil Armstrong	False	0	President Kennedy	True	65	he	124	Neil Armstrong was actually sent on a secret mission assigned by President Kennedy to investigate an abnormal event because he needed the US to beat Russia there.
+dpr-test-503	Neil Armstrong	True	0	President Kennedy	False	65	he	119	Neil Armstrong was actually sent on a secret mission assigned by President Kennedy to investigate an abnormal event so he was trained on what exactly he needed to do.
+dpr-test-504	The CIA	True	0	the United States	False	43	they	69	The CIA control intelligence gathering for the United States because they have some of the best people who specialize in this type of work.
+dpr-test-505	The CIA	False	0	the United States	True	43	they	67	The CIA control intelligence gathering for the United States since they need to stay one step ahead of others to remain a superpower.
+dpr-test-506	Sentinel	True	0	Optimus	False	25	he	66	Sentinel tried to betray Optimus by enslaving the human race, but he did not succeed in his plan.
+dpr-test-507	Sentinel	False	0	Optimus	True	25	he	69	Sentinel tried to betray Optimus by enslaving the human race because he wanted the humans to rule again.
+dpr-test-508	Amazon prime	True	0	Netflix	False	24	they	56	Amazon prime encourages Netflix users to switch because they offer a lower cost and additional benefits program.
+dpr-test-509	Amazon prime	False	0	Netflix	True	24	they	54	Amazon prime encourages Netflix users to switch since they overcharge their users now.
+dpr-test-510	Dell	True	0	their Blackberry phones	False	18	they	65	Dell replaced all their Blackberry phones with their own because they lost confidence in their brand due to to recent network outage.
+dpr-test-511	Dell	False	0	their Blackberry phones	True	18	they	62	Dell replaced all their Blackberry phones with their own, but they are still prominent on other vendor sites.
+dpr-test-512	Malware	False	0	the Android platform	True	51	they	80	Malware has increased over four hundred percent on the Android platform because they are a free platform which allows any developer to post their applications.
+dpr-test-513	Malware	True	0	the Android platform	False	51	they	78	Malware has increased over four hundred percent on the Android platform since they do not need to get vetted to be uploaded.
+dpr-test-514	Some Motorcycle enthusiasts	True	0	TRON fans	False	61	they	79	Some Motorcycle enthusiasts are selling a TRON lightcycle to TRON fans because they specialize in making movie related vehicles.
+dpr-test-515	Some Motorcycle enthusiasts	False	0	TRON fans	True	61	they	76	Some Motorcycle enthusiasts are selling a TRON lightcycle to TRON fans, but they may be turned off by the asking price.
+dpr-test-516	The board of directors	True	0	the scientists	False	48	they	92	The board of directors reviewed the findings of the scientists to determine funding because they are interested in the potential profits for the company.
+dpr-test-517	The board of directors	False	0	the scientists	True	48	they	88	The board of directors reviewed the findings of the scientists to determine funding, so they need to present their findings in a way that can attract more money.
+dpr-test-518	Some fan girls	True	0	Windows phones	False	35	they	58	Some fan girls created a rap about Windows phones because they are in love with their new electronics.
+dpr-test-519	Some fan girls	False	0	Windows phones	True	35	they	55	Some fan girls created a rap about Windows phones, but they did not become more popular.
+dpr-test-520	Some enthusiastic Black Friday shoppers	True	0	retail stores	False	65	they	82	Some enthusiastic Black Friday shoppers are already lining up at retail stores so they can be the first in line for door busters.
+dpr-test-521	Some enthusiastic Black Friday shoppers	False	0	retail stores	True	65	they	87	Some enthusiastic Black Friday shoppers are already lining up at retail stores because they have some really low priced items that will be on sale.
+dpr-test-522	The campus police	False	0	the UC Davis students	True	33	they	63	The campus police pepper sprayed the UC Davis students because they were blocking private property.
+dpr-test-523	The campus police	True	0	the UC Davis students	False	33	they	59	The campus police pepper sprayed the UC Davis students, so they faced an angry backlash by those who do not agree with their actions.
+dpr-test-524	Apple	True	0	Verizon	False	24	they	84	Apple was in talks with Verizon to be their dedicated phone provider initially, but they gave the deal to AT&T in the end.
+dpr-test-525	Apple	False	0	Verizon	True	24	they	87	Apple was in talks with Verizon to be their dedicated phone provider initially because they were a prime candidate to provide their service.
+dpr-test-526	Parents	True	0	their children	False	17	they	53	Parents care for their children considerably because they love them undeniably to want to keep them save.
+dpr-test-527	Parents	False	0	their children	True	17	they	51	Parents care for their children considerably since they are their pride and joy.
+dpr-test-528	Cats	True	0	dogs	False	31	they	42	Cats are more territorial than dogs since they always try and insert their dominance over others.
+dpr-test-529	Cats	False	0	dogs	True	31	they	41	Cats are more territorial than dogs, but they can also be territorial at times when marking their territory.
+dpr-test-530	Kung Fu teachers	True	0	their disciples	False	46	they	68	Kung Fu teachers try to pass on discipline to their disciples since they want them to learn more than just technique.
+dpr-test-531	Kung Fu teachers	False	0	their disciples	True	46	they	67	Kung Fu teachers try to pass on discipline to their disciples, but they do not always learn what they are being taught very well.
+dpr-test-532	Mark	True	0	Tom	False	23	he	35	Mark tried to sabotage Tom because he wants to be employee of the month.
+dpr-test-533	Mark	False	0	Tom	True	23	he	32	Mark tried to sabotage Tom, but he got caught in the process.
+dpr-test-534	The Walking Dead	True	0	zombie enthusiasts	False	50	they	77	The Walking Dead is proving to be a big hit among zombie enthusiasts because they have made a series that greatly appeals to them.
+dpr-test-535	The Walking Dead	False	0	zombie enthusiasts	True	50	they	72	The Walking Dead is proving to be a big hit among zombie enthusiasts so they are watching the show every week.
+dpr-test-536	Guns	True	0	gun collectors	False	46	they	81	Guns generally increase in value over time to gun collectors if unfired, because they need to be in mint condition to be extremely valuable.
+dpr-test-537	Guns	False	0	gun collectors	True	46	they	79	Guns generally increase in value over time to gun collectors if unfired, since they prefer to collect things that are in perfect condition.
+dpr-test-538	Jim	False	0	the monster	True	11	he	32	Jim hunted the monster, because he was scary.
+dpr-test-539	Jim	True	0	the monster	False	11	he	33	Jim hunted the monster, although he was afraid of him.
+dpr-test-540	Arnold Schwarzenegger	True	0	John Conner	False	39	he	60	Arnold Schwarzenegger cannot terminate John Conner, because he is protecting him.
+dpr-test-541	Arnold Schwarzenegger	False	0	John Conner	True	39	he	60	Arnold Schwarzenegger cannot terminate John Conner, because he is the leader of the resistance.
+dpr-test-542	Jim	False	0	John	True	10	he	20	Jim likes John, but he does not like him back.
+dpr-test-543	Jim	True	0	John	False	10	he	20	Jim likes John, but he is not liked back.
+dpr-test-544	The skeleton	True	0	the pumpkin	False	30	it	51	The skeleton was scarier than the pumpkin, because it looked like it was walking.
+dpr-test-545	The skeleton	False	0	the pumpkin	True	30	it	51	The skeleton was scarier than the pumpkin, because it was rather simplistic and orange.
+dpr-test-546	Schrodinger's cat	True	0	an empty building	False	29	it	61	Schrodinger's cat walks into an empty building, but where is it now?
+dpr-test-547	Schrodinger's cat	False	0	an empty building	True	29	it	57	Schrodinger's cat walks into an empty building, but does it contain him?
+dpr-test-548	Bob	True	0	Larry	False	11	he	26	Bob kicked Larry, because he was mad.
+dpr-test-549	Bob	False	0	Larry	True	11	he	26	Bob kicked Larry, because he made a condescending comment.
+dpr-test-550	The program	True	0	the data	False	37	it	51	The program deleted the reference to the data, but it did not delete it.
+dpr-test-551	The program	False	0	the data	True	37	it	51	The program deleted the reference to the data, but it was not deleted.
+dpr-test-552	The criminal	True	0	John	False	21	he	35	The criminal shocked John, because he pulled out a gun.
+dpr-test-553	The criminal	False	0	John	True	21	he	35	The criminal shocked John, because he was not expecting it.
+dpr-test-554	A banana	True	0	an apple	False	13	one	50	A banana and an apple go walking, when the yellow one does the talking.
+dpr-test-555	A banana	False	0	an apple	True	13	one	47	A banana and an apple go walking, when the red one does the talking.
+dpr-test-556	The employer	False	0	Katie	True	21	she	42	The employer offered Katie a job, because she was a fit for the company.
+dpr-test-557	The employer	True	0	Katie	False	21	she	42	The employer offered Katie a job, because she liked the interviewee.
+dpr-test-558	Jim	False	0	Jack	True	25	he	39	Jim was delighted to see Jack, because he brightened up his day.
+dpr-test-559	Jim	True	0	Jack	False	25	he	39	Jim was delighted to see Jack, because he was given the strength to finish his day.
+dpr-test-560	Cuba	True	9	Japan	False	24	it	38	He likes Cuba and hates Japan because it is a communist country.
+dpr-test-561	Cuba	False	9	Japan	True	24	it	38	He likes Cuba and hates Japan because it is not a communist country.
+dpr-test-562	Saudi Arabians	False	0	Bangladeshis	True	34	they	55	Saudi Arabians do not respect the Bangladeshis because they are poor.
+dpr-test-563	Saudi Arabians	True	0	Bangladeshis	False	34	they	55	Saudi Arabians do not respect the Bangladeshis because they are rich.
