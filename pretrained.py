@@ -12,27 +12,27 @@ def tokenize(row, tokenizer):
             ("A", row["A-offset"], row["A"]),
             ("B", row["B-offset"], row["B"]),
             ("P", row["Pronoun-offset"], row["Pronoun"]),
-        ], key=lambda x: x[0]
+        ], key=lambda x: x[1]
     )
     tokens, spans, current_pos = [], {}, 0
     for name, offset, text in break_points:
         tokens.extend(tokenizer.tokenize(row["Text"][current_pos:offset]))
         # Make sure we do not get it wrong
-        assert row["Text"][offset:offset+len(text)] == text
+        assert row["Text"][offset:offset+len(text)] == text, (row.Text[offset:offset+len(text)], text)
         # Tokenize the target
-        tmp_tokens = tokenizer.tokenize(row["Text"][offset:offset+len(text)])
+        tmp_tokens = tokenizer.tokenize(text)
         spans[name] = [len(tokens), len(tokens) + len(tmp_tokens)]
         tokens.extend(tmp_tokens)
         current_pos = offset + len(text)
-    tokens.extend(tokenizer.tokenize(row["Text"][current_pos:offset]))
+    tokens.extend(tokenizer.tokenize(row["Text"][current_pos:]))
     assert spans["P"][0] == spans["P"][1]-1
     return tokens, (spans["A"] + spans["B"] + [spans["P"][0]])
 
-def tokenize_tsv(inp, layers_to_save=[9, 10, 11]):
+def tokenize_tsv(inp, layers_to_save=[8], model='bert-base-uncased', do_lower_case=True):
     df = pd.read_csv(inp, sep='\t')
     dev = 'cuda' if torch.cuda.is_available() else 'cpu'
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    model = BertModel.from_pretrained('bert-base-uncased').to(dev)
+    tokenizer = BertTokenizer.from_pretrained(model, do_lower_case=do_lower_case)
+    model = BertModel.from_pretrained(model).to(dev)
 
     answ = [[] for i in layers_to_save]
     with torch.no_grad():
@@ -51,10 +51,15 @@ def tokenize_tsv(inp, layers_to_save=[9, 10, 11]):
     return answ
 
 @click.command()
+@click.option('-l', type=int)
 @click.argument('inp')
 @click.argument('out')
-def main(inp, out):
-    ret = tokenize_tsv(inp)
+def main(l, inp, out):
+    if l:
+        l = [l]
+    else:
+        l = [8]
+    ret = tokenize_tsv(inp, l, 'bert-large-cased', False)
     with open(out, 'wb') as f:
         pickle.dump(ret, f)
 
