@@ -1,0 +1,30 @@
+\documentclass[10pt]{beamer}
+\usetheme{Antibes}
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
+
+
+\title{Gendered Pronoun Resolution}
+\author[Dhruv (14528)]{Patel Dhruv Hasmukhlal \\14528}
+\institute[CSA, IISc.]{Computer Science and Automation, Indian Institute of Science}
+\begin{document}
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\section{Augmentation}
+\begin{frame}
+
+  \begin{itemize}
+  \item One day before the battle, the astronomer- eunuch \textbf{Pu Wenying} came to see \textbf{Bao Daoyi}, warning him that he noticed an unlucky omen in the skies and urging \textbf{Bao} not to go to war. \textbf{Bao Daoyi} is furious after hearing \textbf{Pu Wenying}'s words and he slices \textbf{Pu} into two with his sword in anger.
+  
+  \item One day before the battle, the astronomer- eunuch \textbf{Ben Kuchera} came to see \textbf{David Cassidy}, warning him that he noticed an unlucky omen in the skies and urging \textbf{David} not to go to war. \textbf{David Cassidy} is furious after hearing \textbf{Ben Kuchera}'s words and he slices \textbf{Ben} into two with his sword in anger.
+  
+  \item "One day before the battle, the astronomer- eunuch \textbf{Irv Robbins} came to see \textbf{Jonas Schmidt}, warning him that he noticed an unlucky omen in the skies and urging \textbf{Jonas} not to go to war. \textbf{Jonas Schmidt} is furious after hearing \textbf{Irv Robbins}'s words and he slices \textbf{Irv} into two with his sword in anger.
+
+  \end{itemize}
+
+\end{frame}
+
+\end{document}

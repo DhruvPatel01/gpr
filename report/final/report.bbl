@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Rahman and Ng(2012)}]{rahman2012resolving}
+Altaf Rahman and Vincent Ng. 2012.
+\newblock Resolving complex cases of definite pronouns: the winograd schema
+  challenge.
+\newblock In \emph{Proceedings of the 2012 Joint Conference on Empirical
+  Methods in Natural Language Processing and Computational Natural Language
+  Learning}, pages 777--789. Association for Computational Linguistics.
+
+\bibitem[{Webster et~al.(2018)Webster, Recasens, Axelrod, and
+  Baldridge}]{webster2018gap}
+Kellie Webster, Marta Recasens, Vera Axelrod, and Jason Baldridge. 2018.
+\newblock Mind the gap: A balanced corpus of gendered ambiguou.
+\newblock In \emph{Transactions of the ACL}, page to appear.
+
+\end{thebibliography}
