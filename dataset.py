@@ -234,7 +234,8 @@ def propose(candidates, old_1, old_2):
 
 class DS_Augmented(Dataset):
     """Just return tokenized sentences(integer lists) and spans"""
-    def __init__(self, tsv, tokenizer, replace_prob=.6, labels=True):
+    def __init__(self, tsv, tokenizer, replace_prob=.6, labels=True,
+                 return_raw=False, return_ids=False):
         super().__init__()
         male_prns = set('he him his'.split())
         fmale_prns = set('her she'.split())
@@ -251,6 +252,8 @@ class DS_Augmented(Dataset):
         self.mdct = male_dct
         self.fdct = fmale_dct
         self.labels = labels
+        self.return_raw = return_raw
+        self.return_ids = return_ids
 
     def __len__(self):
         return len(self.df)
@@ -322,6 +325,8 @@ class DS_Augmented(Dataset):
         return self._process_row(new_row)
 
     def _process_row(self, row):
+        if self.return_raw:
+            return row.Text
         tokens, spans = pretrained.tokenize(row, self.tokenizer)
         tokens = ['[CLS]'] + tokens + ['[SEP]']
         tokens = torch.tensor(self.tokenizer.convert_tokens_to_ids(tokens))
@@ -329,11 +334,18 @@ class DS_Augmented(Dataset):
 
         if self.labels:
             if row['A-coref']:
-                return tokens, spans, 0
+                y = 0
             elif row['B-coref']:
-                return tokens, spans, 1
+                y = 1
             else:
-                return tokens, spans, 2
+                y = 2
+            
+            if self.return_ids:
+                return tokens, spans, y,  row.name
+            else:
+                return tokens, spans, y
+        elif self.return_ids:
+            return tokens, spans, row.name
         return tokens, spans
 
     @staticmethod
