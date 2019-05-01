@@ -44,7 +44,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  In this project we try solve the problem of Genered  Pronoun Resolution. To train neural networks with less data we show how augmentation can help to reduce overfitting. We have experimented with different architectures including and excluding attention. We observe that attention has no advantage over simple mean. Our model scores 0.2462 (cross entropy) on Kaggle competition, which is better than solution occupying 26th position on the leader board.
+  In this project we try solve the problem of Gendered Pronoun Resolution. To train neural networks with less data we show how augmentation can help to reduce overfitting. We have experimented with different architectures including and excluding attention. We observe that attention has no advantage over simple mean. Our model scores 0.2462 (cross entropy) on Kaggle competition, which is better than solution occupying 26th position on the leaderboard.
 \end{abstract}
 
 \section{Introduction and Problem Statement}
@@ -64,11 +64,11 @@ By using transformer network \cite{vaswani2017attention}, \citet{devlin2018bert}
 \label{sec:method}
 Earlier we started with ambitious goal. Instead of just two candidates, our earlier models used Flair embeddings to find all possible person entities as possible candidates using named entity recognition. However for each sentence we only knew one correct answer. There could have been other entities with some variation to correct name, which we would treat as negative example. It turned out that none of our models worked better with GAP dataset(section \ref{subsec:datasets}). So instead we focused on more simpler setting, where two candidates are given and at most one of them is true. Now our problem was reduced to three class classification.
 
-Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. We have experimented with attention, but in our experiments attention didn't give any significant improvements.
+Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. 
 
-In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function).  We have also experimented with bilinear variation, but that too didn't perform well. In one variation, we ran single layer LSTM on the output of BERT, and then we applied scoring function as above, on the output of LSTM.
+In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function).  We have also experimented with bilinear variation, but that didn't perform well. In one variation, we ran single layer LSTM on the output of BERT, and then we applied scoring function as above, on the output of LSTM.
 
-Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. When $w$ is list of tokens $V(w)$ is list containg output of every token. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention.
+Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. When $w$ is a list of tokens $V(w)$ is a list containing output for every input token. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention. Then we concatenate these two scores and $0$ to get 3d vector. Here $0$ is dummy fixed score for case when neither A nor B is correct answer. Probabilities of classes are given by softmax over this vector.
 
 However, while training we found that, since GAP is a small dataset, our models overfitted. Instead of looking for other datasets with similar characteristics of GAP, we used augmentation. Details of augmentation are explained in section \ref{subsec:augment}. But in summary, each time network sees a sentence, with probability 0.6 it will see random different candidates instead of original candidates. Thus network will have no time to memorize candidates and instead it has to learn other useful features.
 
@@ -257,13 +257,13 @@ Table \ref{tab:ce2} shows cross entropy loss on Kaggle test set of stage 2. This
   \label{tab:precisionrecall}
 \end{table}
 
-Table \ref{tab:precisionrecall} shows Precision Recall for different classes on MLP model(2nd row in Table \ref{tab:ce1}) on test set for stage 1. It is interesting to note that for class ``Neither'' recall is 0.58, which is too low. That is our model will say, either A or B often, even though neither of them is true. We believe this is due to class imbalance in training set. Assigning different weights to different classes in loss function could mitigate this situation, but we haven't tried that aproach yet.
+Table \ref{tab:precisionrecall} shows Precision Recall for different classes on MLP model(2nd row in Table \ref{tab:ce1}) on test set for stage 1. It is interesting to note that for class ``Neither'' recall is 0.58, which is too low. That is our model will say, either A or B often, even though neither of them is true. We believe this is due to class imbalance in training set. Assigning different weights to different classes in loss function could mitigate this situation, but we haven't tried that approach yet.
 
 \section{Discussion}
 \label{sec:discussion}
 
 \subsection{Difference(or lack of) between attention and mean}
-Looking at results in table \ref{tab:ce1}, we don't see discernible difference between attetion mechanism and simple mean mechanism. To analyze further we compared cosine similarity of the vectors generated after both mechanisms. About 23\% vectors from validation set had cosine similarity less than $0.999$. And none of the vectors had cosine similarity less than $0.99$. This implies that the learned attetion was close to uniform. To confirm this,  we manually analyzed few random attention weights and they were close to uniform. Although We don't know the side effects of WordPiece tokenization, our hypothesis is that, looking at Figure \ref{fig:augment_dist}, most nouns are single word or double word long. Thus resulting tokenization would not be too long either. And so attention has no advantage in this case.
+Looking at results in table \ref{tab:ce1}, we don't see discernible difference between attention mechanism and simple mean mechanism. To analyze further we compared cosine similarity of the vectors generated after both mechanisms. About 23\% vectors from validation set had cosine similarity less than $0.999$. And none of the vectors had cosine similarity less than $0.99$. This implies that the learned attention was close to uniform. To confirm this,  we manually analyzed few random attention weights and they were close to uniform. Although We don't know the side effects of WordPiece tokenization, our hypothesis is that, looking at Figure \ref{fig:augment_dist}, most nouns are single word or double word long. Thus resulting tokenization would not be too long either. And so attention has no advantage in this case.
 
 \subsection{Bias}
 \label{sec:bias}
@@ -272,16 +272,16 @@ Again, looking at table \ref{tab:ce2}, columns \textbf{M} and \textbf{F}, model 
 \subsection{Fine tuning BERT}
 Even after augmentation, we think that it is not a good idea to fine tune BERT on GAP dataset. Although this may reduce bias, we are afraid that model might learn to remember answer by looking at the context. Augmentation happens only on nouns, context doesn't change. So it might be possible to remember answer based on context. %Same applies to using RNN before MLP. RNN might remember answer based on context.
 
-\subsection{Extending to more than two candidaets}
+\subsection{Extending to more than two candidates}
 \label{subsec:morecandidates}
 Although during training we have two candidates, there is nothing stopping us to have more than two candidates during test time. That is since parameters for scoring function in figure \ref{fig:arch} are shared, we can have final vector of arbitrary size. The next step is softmax over this vector. It doesn't matter the dimensions of this vector, softmax essentially selects top scoring element from input vector. However we were unable to combine NER from Flair and our model, since both use different tokenization. To combine, we would have had to make few changes in our preprocessing code as to incorporate different tokenizations.
 
 \section{Future Work}
 For test stage 2, many top ranking users on Kaggle actually retrained their model with 4000 sentences. That is they also included test set of stage 1 during training. First task for future would be to train our model on combined dataset and observe the effects.
 
-We believe, once test set for stage 2 becomes available, we can fine-tune BERT model also. Or we can induce BiLSTM inbetween BERT and MLP.
+We believe, once test set for stage 2 becomes available, we can fine-tune BERT model also. Or we can induce BiLSTM in between BERT and MLP.
 
-As noted in section \ref{subsec:morecandidates}, it would be intreseting to check our hypothesis that our architecture should work on more than two candidates.
+As noted in section \ref{subsec:morecandidates}, it would be interesting to check our hypothesis that our architecture should work on more than two candidates.
 
 \bibliography{report}
 \bibliographystyle{acl_natbib}
