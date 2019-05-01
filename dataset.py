@@ -339,7 +339,7 @@ class DS_Augmented(Dataset):
                 y = 1
             else:
                 y = 2
-            
+
             if self.return_ids:
                 return tokens, spans, y,  row.name
             else:
@@ -358,6 +358,67 @@ class DS_Augmented(Dataset):
         spans = torch.stack(spans)
         outys = torch.tensor(outys)
         return sents, spans, outys
+
+
+class DS_Simple(Dataset):
+    """Just return tokenized sentences(integer lists) and spans"""
+    def __init__(self, tsv, tokenizer, labels=True,
+                 return_raw=False, return_ids=False):
+        super().__init__()
+
+        df = pd.read_csv(tsv, '\t').set_index('ID')
+
+        self.tokenizer = tokenizer
+        self.df = df
+        self.labels = labels
+        self.return_raw = return_raw
+        self.return_ids = return_ids
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, i):
+        orig_row = self.df.iloc[i]
+        splitted = (orig_row.A.split(), orig_row.B.split())
+        orig_a, orig_b = splitted
+
+        return self._process_row(orig_row)
+
+    def _process_row(self, row):
+        if self.return_raw:
+            return row.Text
+        tokens, spans = pretrained.tokenize(row, self.tokenizer)
+        tokens = ['[CLS]'] + tokens + ['[SEP]']
+        tokens = torch.tensor(self.tokenizer.convert_tokens_to_ids(tokens))
+        spans = torch.tensor([s+1 for s in spans])
+
+        if self.labels:
+            if row['A-coref']:
+                y = 0
+            elif row['B-coref']:
+                y = 1
+            else:
+                y = 2
+
+            if self.return_ids:
+                return tokens, spans, y,  row.name
+            else:
+                return tokens, spans, y
+        elif self.return_ids:
+            return tokens, spans, row.name
+        return tokens, spans
+
+    @staticmethod
+    def collate_fn(inputs):
+        sents = [inp[0] for inp in inputs]
+        spans = [inp[1] for inp in inputs]
+        outys = [inp[2] for inp in inputs]
+
+        sents = torch.nn.utils.rnn.pad_sequence(sents, batch_first=True, padding_value=0)
+        spans = torch.stack(spans)
+        outys = torch.tensor(outys)
+        return sents, spans, outys
+
 
 class DS_v3(Dataset):
     """return means, but also distances and sizes of them"""
