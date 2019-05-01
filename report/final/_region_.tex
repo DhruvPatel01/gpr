@@ -1,0 +1,163 @@
+\message{ !name(report.tex)}%
+% File acl2019.tex
+%
+%% Based on the style files for ACL 2018, NAACL 2018/19, which were
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{report}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage{url}
+
+\aclfinalcopy % Uncomment this line for the final submission
+%\def\aclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand\BibTeX{B\textsc{ib}\TeX}
+
+\title{Gendered Pronoun Resolution}
+
+\author{Dhruv Patel \\
+  IISc, Bangalore \\
+  \texttt{dhruvpatel@iisc} \\\And
+  Pratik Sachan \\
+  IISc, Bangalore \\
+  \texttt{pratiksachan@iisc} \\}
+
+\date{}
+
+\begin{document}
+
+\message{ !name(report.tex) !offset(-3) }
+
+\maketitle
+\begin{abstract}
+  Abstract here.
+\end{abstract}
+
+\section{Introduction and Problem Statement}
+Gendered Pronoun Resolution is a subset of co-reference resolution problem. Here we study problem in a setting where we are given a particular male(he, his, him) or female pronoun(she, her, hers) and two candidate nouns in a sentence that match gender of the given pronoun. Task is to figure out which of these two candidates, this particular pronoun refers to.  Our architecture can be extended to more than two candidates without any modifications. This problem was posed on Kaggle as a competition by Google AI. Below we show one example sentence of the input. Boldface words are candidate nouns. Underlined noun is correct noun. Italic boldfaced word is the pronoun.
+\begin{quote}
+   \textbf{\underline{Kathleen}} first appears when \textbf{Theresa} visits \textbf{\textit{her}} in a prison in London.
+\end{quote}
+
+\section{Related Work}
+Earlier co-reference resolutions approaches using neural networks were proposed by \cite{wiseman2016learning} and \cite{clarkmanning2016deep}. However they used syntactic parsers to hand engineer mention proposal algorithms. Current state-of-the-art model is proposed by \cite{lee2017end}. In their model, they would consider all spans of some maximum length and calculate mention score for that span using a neural network. Than for each span $i$ they would consider all spans $j$ before it and calculate a score for pair $(i, j)$. They also consider special span $\epsilon$ and fix score of $(i, \epsilon)$ to 0. $\epsilon$ span denotes that $i$ is the first co-referent, and nothing before it refers to same entity as $i$.
+
+To find embeddings of spans \cite{lee2017end} used BiLSTM, with GloVe \cite{pennington2014glove} embeddings as input. At the end to calculate fixed size span embedding, they used attention mechanism to find weights and than used weighted combination of embeddings of words in span. Later in \cite{Peters:2018}, authors improved results of this architecture by using ELMo embeddings.
+
+By using transformer network \cite{vaswani2017attention}, \cite{devlin2018bert} have trained BERT model to give contextualized embeddings. These embeddings have got state-of-the-art results in eleven NLP tasks.
+
+\section{Method}
+Earlier we started with ambitious goal. Instead of just two candidates, our earlier models used Flair embeddings to find all possible person entities as possible candidates using named entity recognition. However for each sentence we only knew one correct answer. There could have been other entities with some variation to correct name, which we would treat as negative example. It turned out that none of our models worked better with GAP dataset(section \ref{subsec:datasets}). So instead we focused on more simpler setting, where two candidates are given and at most one of them is true. Now our problem was reduced to three class classification.
+
+Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. We have experimented with attetion, but in our experiments attention didn't give any significant imporvements. In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through two layer fully connected neural network.  We have alo experimented with bilinear variation, but that too didn't perform well.  
+
+However, while training we found that, since GAP is a small dataset, our models overfitted. Instead of looking for other datasets with similar characteristics of GAP, we used augmentation. Details of augmentation are explained in section \ref{subsec:augment}. But in summary, each time network sees a sentence, with probability 0.6 it will see random different candidates instead of original candidates. Thus network will have no time to memorize candidates and instead it has to learn other useful features.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.4\textwidth]{arch.png}
+  \caption{Architecture}
+  \label{fig:arch}
+\end{figure}
+
+Figure \ref{fig:arch} shows our final architecture with respect to which our results are reported in section \ref{sec:results}.
+\section{Datasets and Metrics}
+
+\subsection{Datasets}
+\label{subsec:datasets}
+We have used two datasets in our experiments.
+\begin{enumerate}
+\item \textbf{GAP} GAP co-reference dataset \cite{webster2018gap} is gender-balanced dataset divided into three sets for development, test and validation. Both development and test sets contain 2000 sentences each. Validation dataset contains 454 sentences. In each sentence there are two possible candidates denoted by A and B respectively. There is one pronoun per sentence. This pronoun can refer to either A or B or neither. 
+
+
+\item \textbf{DPR} Definite Pronoun Resolution \cite{rahman2012resolving} dataset is divided into two sets for training and testing. There are 1886 sentences in total. Although the original dataset has only one candidate per sentence, there are two sentences having same actors in common(i.e. there are 943 pairs of sentences). So we combined two actors to play as candidates. The resulting dataset is similar to GAP. Below is an example pair.
+  \begin{quote}
+    \begin{itemize}
+    \item James asked \textbf{Robert} for a favor, but \textit{\textbf{he}} refused.
+    \item \textbf{James} asked Robert for a favor, but \textit{\textbf{he}} was refused.
+    \end{itemize}
+  \end{quote}
+\end{enumerate}
+
+We have used 2000 sentences from GAP to train, while keeping others aside for validation and test. When we used DPR in addition to GAP, we used both train and test sets of DPR for training. Validation in this case was still done on GAP validation set.
+
+\subsection{Data Augmentation}
+\label{subsec:augment}
+
+Earlier we tried our models without any data augmentation. But since GAP has only 2000 sentences in development set, our models overfitted. An SVM trained on these 2000 sentences outperformed neural network architectures that we tried. To compare our later modifications, we will use SVM as a baseline.
+
+To mitigate the situation we applied data augmentation. Our hypothesis is that, since input to our network is just a pair of candidate nouns, it doesn’t matter what these nouns are. If all occurrences of noun `Firstname Lastname’ were to be replaced by some other plausible pair of first name and last names, sentence should make perfect sense. To neural network ``Jon Snow doesn’t know anything.’’ should be similar to ``John Wick doesn’t know anything.’’ 
+
+To augment data we applied simple rule. If both candidate A and candidate B had less than four words then with probability 0.6 we would pick random noun with same number of words. That is if A had three words and B had two words, we would pick alternative A and B with three words and two words respectively. If pronoun is male(female), then only male(female) names are proposed as alternatives. Alternative name for B was chosen such that no word of it was a substring of alternative A. Also none of the alternatives had any overlap with original nouns. Below are the examples of augmented sentences. First sentence is an original, other are augmented. Here Margaret Ray is candidate A and Betsy is candidate B.
+
+\begin{itemize}
+\item Tony Markham, a high school senior and the ``Tall Dark Stranger'' \underline{Betsy} fell in love with as a freshman, who has since become a good friend not only to \underline{Betsy} but the entire \underline{Ray} family. \underline{Mrs. Ray}, \underline{Betsy}'s mother. \underline{Mr. Ray}, \underline{Betsy}'s father, who owns a shoestore. \textbf{\underline{Margaret Ray}}, \textbf{\underline{Betsy}}'s sister who is five years younger than she is.
+  
+\item Tony Markham, a high school senior and the ``Tall Dark Stranger'' \underline{Booth} fell in love with as a freshman, who has since become a good friend not only to \underline{Booth} but the entire \underline{Delgado} family. \underline{Mrs. Delgado}, \underline{Booth}'s mother. \underline{Mr. Delgado}, \underline{Booth}'s father, who owns a shoestore. \underline{Pam Delgado}, \underline{Booth}'s sister who is five years younger than she is.
+
+\item Tony Markham, a high school senior and the ``Tall Dark Stranger'' \underline{Alyssa} fell in love with as a freshman, who has since become a good friend not only to \underline{Alyssa} but the entire \underline{Jolie} family. \underline{Mrs. Jolie}, \underline{Alyssa}'s mother. \underline{Mr. Jolie}, \underline{Alyssa}'s father, who owns a shoestore. \underline{Angelina Jolie}, \underline{Alyssa}'s sister who is five years younger than she is.
+\end{itemize}
+
+  
+The pool for alternative names was extracted from dataset for stage2 of Kaggle compitition. It has around 12K sentences. Figure \ref{fig:augment_dist} shows, distribution of names for both genders. One word names are most common in dataset followed by two word names.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.5\textwidth]{augment_dist.png}
+  \caption{Distribution of names.}
+  \label{fig:augment_dist}
+\end{figure}
+
+\subsection{Metrics}
+To compare our results with baseline proposed in GAP dataset, we use micro average of F1-scores. To compare our results with other Kaggle compititors, we used cross entropy loss $\mathcal{L}$.
+
+\[
+  \mathcal{L} = - \frac{1}{N} \sum_{i=1}^N \sum_{j \in \{A, B, N\}} (y_i^j* log(\sigma(\hat{y_i^j}))).
+\]
+
+Where $y_i^j$ is 1 if $j$ is correct candidate for $i^{th}$ examaple. N denotes neither case. $\hat{y_i^j}$ denotes predicted probability for class $j$ for $i^{th}$ example.
+
+\section{Baselines}
+\label{sec:baselines}
+ Table \ref{tab:baselines} shows baselines we have used. First three rows were reported by Webster et al.\shortcite{webster2018gap}. However these baseline models were not trained on GAP dataset\footnote{Authors have reported results on development set and not test set. So to be fair, we have trained our models actually on test set and reported results on development set. On Kaggle too published test set was actually development set in Github repository}. For example Lee et al. \shortcite{lee2017end} was trained on onto notes.  column 
+\begin{table}
+  \centering
+  \begin{tabular}{|l|r|r|r|}
+    \hline
+    & M & F & O \\
+    \hline
+    Clark and Manning\shortcite{clarkmanning2016deep} & 58.5 & 51.3 & 55.0 \\
+    Wiseman et al. \shortcite{wiseman2016learning} & 68.4 & 59.9 & 64.2 \\
+    Lee et al. \shortcite{lee2017end} & 67.2 & 62.2 & 64.7 \\
+    \hline
+    SVM-8 & 0.77 & 0.79 & 0.78  \\
+    \hline
+  \end{tabular}
+  \caption{Baselines}
+  \label{tab:baselines}
+\end{table}
+\bibliography{report}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\end{document}
+
+\message{ !name(report.tex) !offset(-163) }

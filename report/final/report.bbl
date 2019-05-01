@@ -1,5 +1,43 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{9}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Clark and Manning(2016)}]{clarkmanning2016deep}
+Kevin Clark and Christopher~D. Manning. 2016.
+\newblock \href {https://doi.org/10.18653/v1/D16-1245} {Deep reinforcement
+  learning for mention-ranking coreference models}.
+\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2256--2262, Austin, Texas. Association
+  for Computational Linguistics.
+
+\bibitem[{Devlin et~al.(2018)Devlin, Chang, Lee, and
+  Toutanova}]{devlin2018bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018.
+\newblock Bert: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock \emph{arXiv preprint arXiv:1810.04805}.
+
+\bibitem[{Lee et~al.(2017)Lee, He, Lewis, and Zettlemoyer}]{lee2017end}
+Kenton Lee, Luheng He, Mike Lewis, and Luke Zettlemoyer. 2017.
+\newblock \href {https://doi.org/10.18653/v1/D17-1018} {End-to-end neural
+  coreference resolution}.
+\newblock In \emph{Proceedings of the 2017 Conference on Empirical Methods in
+  Natural Language Processing}, pages 188--197, Copenhagen, Denmark.
+  Association for Computational Linguistics.
+
+\bibitem[{Pennington et~al.(2014)Pennington, Socher, and
+  Manning}]{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher~D. Manning. 2014.
+\newblock \href {http://www.aclweb.org/anthology/D14-1162} {Glove: Global
+  vectors for word representation}.
+\newblock In \emph{Empirical Methods in Natural Language Processing (EMNLP)},
+  pages 1532--1543.
+
+\bibitem[{Peters et~al.(2018)Peters, Neumann, Iyyer, Gardner, Clark, Lee, and
+  Zettlemoyer}]{Peters:2018}
+Matthew~E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark,
+  Kenton Lee, and Luke Zettlemoyer. 2018.
+\newblock Deep contextualized word representations.
+\newblock In \emph{Proc. of NAACL}.
 
 \bibitem[{Rahman and Ng(2012)}]{rahman2012resolving}
 Altaf Rahman and Vincent Ng. 2012.
@@ -9,10 +47,27 @@ Altaf Rahman and Vincent Ng. 2012.
   Methods in Natural Language Processing and Computational Natural Language
   Learning}, pages 777--789. Association for Computational Linguistics.
 
+\bibitem[{Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones,
+  Gomez, Kaiser, and Polosukhin}]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin. 2017.
+\newblock Attention is all you need.
+\newblock In \emph{Advances in neural information processing systems}, pages
+  5998--6008.
+
 \bibitem[{Webster et~al.(2018)Webster, Recasens, Axelrod, and
   Baldridge}]{webster2018gap}
 Kellie Webster, Marta Recasens, Vera Axelrod, and Jason Baldridge. 2018.
 \newblock Mind the gap: A balanced corpus of gendered ambiguou.
 \newblock In \emph{Transactions of the ACL}, page to appear.
+
+\bibitem[{Wiseman et~al.(2016)Wiseman, Rush, and Shieber}]{wiseman2016learning}
+Sam Wiseman, Alexander~M. Rush, and Stuart~M. Shieber. 2016.
+\newblock \href {https://doi.org/10.18653/v1/N16-1114} {Learning global
+  features for coreference resolution}.
+\newblock In \emph{Proceedings of the 2016 Conference of the North {A}merican
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 994--1004, San Diego, California. Association for
+  Computational Linguistics.
 
 \end{thebibliography}
