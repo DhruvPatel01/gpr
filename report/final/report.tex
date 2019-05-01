@@ -48,15 +48,15 @@
 \end{abstract}
 
 \section{Introduction and Problem Statement}
-Gendered Pronoun Resolution is a subset of co-reference resolution problem. Here we study problem in a setting where we are given a particular male(he, his, him) or female(she, her, hers) pronoun and two candidate nouns in a sentence that match gender of the given pronoun. Task is to figure out which of these two candidates this particular pronoun refers to.  Our architecture can be extended to more than two candidates without any modifications. This problem was posed on Kaggle as a competition by Google AI. Below we show one example sentence of the input. Boldface words are candidate nouns. Underlined noun is correct noun. Italic boldfaced word is the pronoun.
+Gendered Pronoun Resolution is a subset of co-reference resolution problem. Here we study problem in a setting where we are given a particular male(he, his, him) or female(she, her, hers) pronoun and two candidate nouns in a sentence that match gender of the given pronoun. Task is to figure out which of these two candidates this particular pronoun refers to.  Our architecture can be extended to more than two candidates without any modifications. This problem was posed on Kaggle as a competition by Google AI. Below we show one example sentence of the input. Boldface words are candidate nouns. Underlined noun is the correct noun. Italic boldfaced word is the pronoun.
 \begin{quote}
    \textbf{\underline{Kathleen}} first appears when \textbf{Theresa} visits \textbf{\textit{her}} in a prison in London.
 \end{quote}
 
 \section{Related Work}
-Earlier co-reference resolutions approaches using neural networks were proposed by \cite{wiseman2016learning} and \cite{clarkmanning2016deep}. However they used syntactic parsers to hand engineer mention proposal algorithms. Current state-of-the-art model is proposed by \cite{lee2017end}. In their model, they would consider all spans of some maximum length and calculate mention score for that span using a neural network. Than for each span $i$ they would consider all spans $j$ before it and calculate a score for pair $(i, j)$. They also consider special span $\epsilon$ and fix score of $(i, \epsilon)$ to 0. $\epsilon$ span denotes that $i$ is the first co-referent, and nothing before it refers to same entity as $i$.
+Earlier co-reference resolutions approaches using neural networks were proposed by \citet{wiseman2016learning} and \citet{clarkmanning2016deep}. However they used syntactic parsers to hand engineer mention proposal algorithms. Current state-of-the-art model is proposed by \citet{lee2017end}. In their model, they would consider all spans of some maximum length and calculate mention score for that span using a neural network. Than for each span $i$ they would consider all spans $j$ before it and calculate a score for pair $(i, j)$. They also consider special span $\epsilon$ and fix score of $(i, \epsilon)$ to 0. $\epsilon$ span denotes that $i$ is the first co-referent, and nothing before it refers to same entity as $i$.
 
-To find embeddings of spans \citet{lee2017end} used BiLSTM, with GloVe \cite{pennington2014glove} embeddings as input. At the end to calculate fixed size span embedding, they used attention mechanism to find weights and than used weighted combination of embeddings of words in the span. Later \citet{Peters:2018} improved results of this architecture by using ELMo embeddings.
+To find embeddings of spans \citet{lee2017end} used BiLSTM, with GloVe \cite{pennington2014glove} embeddings as input. At the end, to calculate fixed size span embedding, they used attention mechanism to find weights and than used weighted combination of embeddings of words in the span. Later \citet{Peters:2018} improved results of this architecture by using ELMo embeddings.
 
 By using transformer network \cite{vaswani2017attention}, \citet{devlin2018bert} have trained BERT model to give contextualized embeddings. These embeddings have got state-of-the-art results in eleven NLP tasks.
 
@@ -64,9 +64,15 @@ By using transformer network \cite{vaswani2017attention}, \citet{devlin2018bert}
 \label{sec:method}
 Earlier we started with ambitious goal. Instead of just two candidates, our earlier models used Flair embeddings to find all possible person entities as possible candidates using named entity recognition. However for each sentence we only knew one correct answer. There could have been other entities with some variation to correct name, which we would treat as negative example. It turned out that none of our models worked better with GAP dataset(section \ref{subsec:datasets}). So instead we focused on more simpler setting, where two candidates are given and at most one of them is true. Now our problem was reduced to three class classification.
 
-Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. We have experimented with attention, but in our experiments attention didn't give any significant improvements. In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function).  We have also experimented with bilinear variation, but that too didn't perform well.  
+Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. We have experimented with attention, but in our experiments attention didn't give any significant improvements.
+
+In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function).  We have also experimented with bilinear variation, but that too didn't perform well. In one variation, we ran single layer LSTM on the output of BERT, and then we applied scoring function as above, on the output of LSTM.
+
+Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. When $w$ is list of tokens $V(w)$ is list containg output of every token. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention.
 
 However, while training we found that, since GAP is a small dataset, our models overfitted. Instead of looking for other datasets with similar characteristics of GAP, we used augmentation. Details of augmentation are explained in section \ref{subsec:augment}. But in summary, each time network sees a sentence, with probability 0.6 it will see random different candidates instead of original candidates. Thus network will have no time to memorize candidates and instead it has to learn other useful features.
+
+
 
 \begin{figure}
   \centering
@@ -152,7 +158,7 @@ Where $y_i^j$ is 1 if $j$ is correct candidate for $i^{th}$ example. N denotes n
 \end{table}
 
 
-Table \ref{tab:baselines} shows baselines we have used. First three rows were reported by Webster et al.\shortcite{webster2018gap}. \textbf{M} column denotes F1 score for male, same for female and \textbf{O} denotes score for all. However these baseline models were not trained on GAP dataset\footnote{Authors have reported results on development set and not test set. So to be fair, we have trained our models actually on test set and reported results on development set. On Kaggle too published test set was actually development set in Github repository}. For example Lee et al. \shortcite{lee2017end} was trained on onto notes. 
+Table \ref{tab:baselines} shows baselines we have used. First two rows were reported by Webster et al.\shortcite{webster2018gap}. \textbf{M} column denotes F1 score for male, same for female and \textbf{O} denotes score for all. However these baseline models were not trained on GAP dataset\footnote{Authors have reported results on development set and not test set. So to be fair, we have trained our models actually on test set and reported results on development set. On Kaggle too published test set was actually development set in Github repository}. For example Lee et al. \shortcite{lee2017end} was trained on onto notes. 
 
 In last row we note the baseline that we established. That score was obtained by SVM trained on $768 \times 3$ dimensional vectors. These vectors were obtained by concatenating outputs of 8th layer BERT(base model) for $A$, $B$ and $P$. Where $P$ denotes a pronoun.  
 
@@ -161,7 +167,9 @@ In last row we note the baseline that we established. That score was obtained by
 
 We have ran different experiments. In one set of experiments we varied different layers of BERT base model and BERT large model. There were $24 + 12$ different experiments done. Initially for base model, our best score(cross entropy) was 0.59, which was obtained by 8th layer and scoring function explained in section \ref{sec:method}. This model was unable to pass the baseline that we had established (i.e. SVM). The cross entropy of SVM-8 is 0.51.
 
-Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention.
+
+
+For LSTM, we used single layer with 400 hidden units. In these experiments, output of LSTM was passed to scoring function.
 
 We have implemented our models in PyTorch. We used pretrained BERT models from Hugging Face\footnote{https://github.com/huggingface/pytorch-pretrained-BERT}. We used Adam optimizer with default parameters. We used patience value of 20, that is if no improvement in validation loss happened within 20 epochs, we would stop training. Weight decay of 0.001 was used. Dropout value of 0.5 was used. The best results were obtained by 20th layer of BERT large model.
 
@@ -183,8 +191,10 @@ We have implemented our models in PyTorch. We used pretrained BERT models from H
     \hline
   \end{tabular}
   \caption{F1 score Results}
-  \label{tab:accuracy}
+  \label{tab:f1}
 \end{table}
+
+Table \ref{tab:f1} shows results on our models. When model has \texttt{-attn} suffix, model used attention instead of simple mean. When model has \texttt{-dpr} in it's name we have also used DPR dataset in addition to GAP dataset. We can see that there is no discernible difference in overall F1-score. We discuss implications and our hypothesis in section \ref{sec:discussion}.
 
 \begin{table}
   \centering
@@ -203,6 +213,9 @@ We have implemented our models in PyTorch. We used pretrained BERT models from H
   \caption{Cross Entropy Loss on stage 1 test set}
   \label{tab:ce1}
 \end{table}
+
+Table \ref{tab:ce1} shows cross entropy loss on Kaggle test set of stage 1.  Other models are performing better. In this test set there are 2000 examples.
+
 \begin{table}
   \centering
   \begin{tabular}{|l|r|}
@@ -210,6 +223,8 @@ We have implemented our models in PyTorch. We used pretrained BERT models from H
     & O \\
     \hline
     SVM-8          &  0.7809 \\
+    \hline
+    RNN-MLP & 0.3963 \\
     \hline
     MLP  & 0.2462 \\
     MLP-attn   & 0.2545 \\
@@ -223,6 +238,8 @@ We have implemented our models in PyTorch. We used pretrained BERT models from H
   \caption{Cross Entropy Loss on stage 2 test set}
   \label{tab:ce2}
 \end{table}
+
+Table \ref{tab:ce2} shows cross entropy loss on Kaggle test set of stage 2. This test set contains around 12K examples. Since correct answers are not in public domain yet, we obtain these results by uploading our results on Kaggle competition page. Here we see that our SVM baseline fails miserably. However other models performs good. For reference we also list results of composition winner and 25th spot to compare our position. This table also includes result on RNN. Using LSTM didn't improve results.
 
 \begin{table}
   \centering
@@ -240,26 +257,20 @@ We have implemented our models in PyTorch. We used pretrained BERT models from H
   \label{tab:precisionrecall}
 \end{table}
 
-Table \ref{tab:accuracy} shows results on our models. When model has \texttt{-attn} suffix, model used attention instead of simple mean. When model has \texttt{-dpr} in it's name we have also used DPR dataset in addition to GAP dataset. We can see that there is no discernible difference in overall accuracy. We discuss implications and our hypothesis in section \ref{sec:discussion}.
-
-Table \ref{tab:ce1} shows cross entropy loss on Kaggle test set of stage 1.  Other models are performing better. In this test set there are 2000 examples.
-
-Table \ref{tab:ce2} shows cross entropy loss on Kaggle test set of stage 2. This test set contains around 12K examples. Since correct answers are not in public domain yet, we obtain these results by uploading our results on Kaggle competition page. Here we see that our SVM baseline fails miserably. However other models performs good. For reference we also list results of composition winner and 25th spot to compare our position.
-
-Table \ref{tab:precisionrecall} shows Precision Recall for different classes on MLP model(2nd row in Table \ref{tab:ce1}) on test set for stage 1. It is interesting to note that for class ``Neither'' recall is 0.58, which is too low. That is our model will say, either A or B often, even though neither of them is true. We believe this is due to class imbalance in training set. Assigning different weights to different classes could mitigate this situation, but we haven't tried that aproach yet.
+Table \ref{tab:precisionrecall} shows Precision Recall for different classes on MLP model(2nd row in Table \ref{tab:ce1}) on test set for stage 1. It is interesting to note that for class ``Neither'' recall is 0.58, which is too low. That is our model will say, either A or B often, even though neither of them is true. We believe this is due to class imbalance in training set. Assigning different weights to different classes in loss function could mitigate this situation, but we haven't tried that aproach yet.
 
 \section{Discussion}
 \label{sec:discussion}
 
 \subsection{Difference(or lack of) between attention and mean}
-Looking at results in table \ref{tab:ce1}, we don't see discernible difference between attetion mechanism and simple mean mechanism. To analyze further we compared cosine similarity of the vectors generated after both mechanisms. About 23\% vectors from validation set had cosine similarity less than $0.999$. And none of the vectors had cosine similarity less than $0.99$. This implies that the learned attetion was close to uniform. To confirm this,  we mannually analyzed few random attention weights and they were close to uniform. Although We don't know the side effects of WordPiece tokenization, our hypothesis is that, looking at Figure \ref{fig:augment_dist}, most nouns are single word or double word long. Thus resulting tokenization would not be too long either. And so attention has no advantage in this case.
+Looking at results in table \ref{tab:ce1}, we don't see discernible difference between attetion mechanism and simple mean mechanism. To analyze further we compared cosine similarity of the vectors generated after both mechanisms. About 23\% vectors from validation set had cosine similarity less than $0.999$. And none of the vectors had cosine similarity less than $0.99$. This implies that the learned attetion was close to uniform. To confirm this,  we manually analyzed few random attention weights and they were close to uniform. Although We don't know the side effects of WordPiece tokenization, our hypothesis is that, looking at Figure \ref{fig:augment_dist}, most nouns are single word or double word long. Thus resulting tokenization would not be too long either. And so attention has no advantage in this case.
 
 \subsection{Bias}
 \label{sec:bias}
-Again, looking at table \ref{tab:ce2}, columns \textbf{M} and \textbf{F}, model MLP has most bias, even though it is best performing model on stage 2 testset. We expected there to be more bias in last two models than first two, since they were trained on DPR dataset as well, which has unbalanced pronouns. GAP dataset on the other hand is balanced dataset. We think this bias stems from BERT embeddings and not from the dataset.
+Again, looking at table \ref{tab:ce2}, columns \textbf{M} and \textbf{F}, model MLP has most bias, even though it is best performing model on stage 2 test set. We expected there to be more bias in last two models than first two, since they were trained on DPR dataset as well, which has unbalanced pronouns. GAP dataset on the other hand is balanced dataset. We think this bias stems from BERT embeddings and not from the dataset.
 
 \subsection{Fine tuning BERT}
-Even after augmentation, we think that it is not a good idea to fine tune BERT on GAP dataset. Although this may reduce bias, we are afraid that model might learn to remember answer by looking at the context. Augmentation happens only on nouns, context doesn't change. So it might be possible to remember answer based on context. Same applies to using RNN before MLP. RNN might remember answer based on context.
+Even after augmentation, we think that it is not a good idea to fine tune BERT on GAP dataset. Although this may reduce bias, we are afraid that model might learn to remember answer by looking at the context. Augmentation happens only on nouns, context doesn't change. So it might be possible to remember answer based on context. %Same applies to using RNN before MLP. RNN might remember answer based on context.
 
 \subsection{Extending to more than two candidaets}
 \label{subsec:morecandidates}
@@ -275,6 +286,6 @@ As noted in section \ref{subsec:morecandidates}, it would be intreseting to chec
 \bibliography{report}
 \bibliographystyle{acl_natbib}
 
-\appendix
+%\appendix
 
 \end{document}
