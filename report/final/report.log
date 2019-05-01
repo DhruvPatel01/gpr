@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.27)  1 MAY 2019 23:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.27)  1 MAY 2019 23:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -228,27 +228,27 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 45.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring ON on input line 44.
+Package hyperref Info: Link coloring ON on input line 45.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -258,9 +258,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count106
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (./report.out) (./report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
@@ -299,31 +299,31 @@ ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 45.
+(Font)              <12> on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 45.
+(Font)              <8> on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 45.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 45.
+(Font)              <6> on input line 46.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 46.
 
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 45.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 46.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 53.
+(Font)              <10.95> on input line 54.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 53.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 54.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -332,79 +332,75 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
 <../figures/arch.png, id=44, 400.77pt x 274.2975pt>
 File: ../figures/arch.png Graphic file (type png)
 <use ../figures/arch.png>
-Package pdftex.def Info: ../figures/arch.png  used on input line 79.
+Package pdftex.def Info: ../figures/arch.png  used on input line 80.
 (pdftex.def)             Requested size: 182.09485pt x 124.62976pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1688) in paragraph at lines 91--92
+Underfull \hbox (badness 1688) in paragraph at lines 92--93
 []\OT1/ptm/b/n/10.95 GAP \OT1/ptm/m/n/10.95 GAP co-reference dataset ([][]Web-s
 ter
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 97.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 98.
 (/usr/share/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
  [2 <../figures/arch.png>]
 <../figures/augment_dist.png, id=69, 690.9012pt x 701.7417pt>
 File: ../figures/augment_dist.png Graphic file (type png)
 <use ../figures/augment_dist.png>
-Package pdftex.def Info: ../figures/augment_dist.png  used on input line 127.
+Package pdftex.def Info: ../figures/augment_dist.png  used on input line 128.
 (pdftex.def)             Requested size: 227.62204pt x 231.19pt.
 
-Overfull \hbox (8.53592pt too wide) in paragraph at lines 127--128
+Overfull \hbox (8.53592pt too wide) in paragraph at lines 128--129
  [][] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 161.
+(Font)              <9> on input line 162.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 161.
+(Font)              <5> on input line 162.
 [3 <../figures/augment_dist.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 [][][]\OT1/ptm/m/n/9 https://github.com/huggingface/pytorch-pretrained-
  []
 
 
-Overfull \hbox (12.72856pt too wide) in paragraph at lines 246--256
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Overfull \hbox (12.72856pt too wide) in paragraph at lines 247--257
  [][] 
  []
 
-[4] (./report.bbl
+(./report.bbl [5]
 Underfull \hbox (badness 2005) in paragraph at lines 29--34
 []\OT1/ptm/m/n/10 Jeffrey Pen-ning-ton, Richard Socher, and Christo-
  []
 
-[5])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
  [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 292.
  )
 (\end occurred when \iffalse on line 351 was incomplete) 
 Here is how much of TeX's memory you used:
  7171 strings out of 492616
  107075 string characters out of 6135177
- 214237 words of memory out of 5000000
+ 210252 words of memory out of 5000000
  10964 multiletter control sequences out of 15000+600000
  29177 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,10n,40p,1079b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,10n,40p,874b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/
 fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
@@ -416,7 +412,7 @@ pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
 share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (6 pages, 204952 bytes).
+Output written on report.pdf (6 pages, 205053 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams

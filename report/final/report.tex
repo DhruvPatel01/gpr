@@ -32,12 +32,13 @@
 
 \title{Gendered Pronoun Resolution}
 
-\author{Dhruv Patel \\
+\author{Dhruv Patel(14528) \\
   IISc, Bangalore \\
   \texttt{dhruvpatel@iisc} \\\And
-  Prateek Sachan \\
+  Prateek Sachan(15754) \\
   IISc, Bangalore \\
-  \texttt{prateeksachan@iisc} \\}
+  \texttt{prateeksachan@iisc} \\
+  }
 
 \date{}
 
@@ -66,9 +67,9 @@ Earlier we started with ambitious goal. Instead of just two candidates, our earl
 
 Our starting point was Lee et al.'s model. First we get BERT embeddings for candidate A, candidate B and a pronoun. We used simple mean to get fixed size vector for each candidate. 
 
-In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function).  We have also experimented with bilinear variation, but that didn't perform well. In one variation, we ran single layer LSTM on the output of BERT, and then we applied scoring function as above, on the output of LSTM.
+In their model they had to find mention score for each span. However in this simpler setting, since candidate spans are given, we modified their architecture to not use mention score. Now we only needed to find two scores, one for each possible candidates.  We pass pair consisting a candidate and a pronoun through three layer fully connected neural network (called scoring function). Then we concatenate these two scores and $0$ to get 3d vector. Here $0$ is dummy fixed score for case when neither A nor B is correct answer. Probabilities of classes are given by softmax over this vector.
 
-Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. When $w$ is a list of tokens $V(w)$ is a list containing output for every input token. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention. Then we concatenate these two scores and $0$ to get 3d vector. Here $0$ is dummy fixed score for case when neither A nor B is correct answer. Probabilities of classes are given by softmax over this vector.
+We have also experimented with bilinear variation of scoring function, but that didn't perform well. In one variation, we ran single layer LSTM on the output of BERT, and then we applied scoring function as above, on the output of LSTM.
 
 However, while training we found that, since GAP is a small dataset, our models overfitted. Instead of looking for other datasets with similar characteristics of GAP, we used augmentation. Details of augmentation are explained in section \ref{subsec:augment}. But in summary, each time network sees a sentence, with probability 0.6 it will see random different candidates instead of original candidates. Thus network will have no time to memorize candidates and instead it has to learn other useful features.
 
@@ -167,9 +168,9 @@ In last row we note the baseline that we established. That score was obtained by
 
 We have ran different experiments. In one set of experiments we varied different layers of BERT base model and BERT large model. There were $24 + 12$ different experiments done. Initially for base model, our best score(cross entropy) was 0.59, which was obtained by 8th layer and scoring function explained in section \ref{sec:method}. This model was unable to pass the baseline that we had established (i.e. SVM). The cross entropy of SVM-8 is 0.51.
 
+Our scoring function is multi layer perceptron with three linear layers with ReLU activation. First layer has 64 units, second layer has 32 units and final layer has one output unit. We pass $[C(V(A))|V(P)]$ and $[C(V(B))|V(P)]$ through this function and obtain scalar score. Here $V(w)$ is an output of certain layer BERT for token $w$. When $w$ is a list of tokens $V(w)$ is a list containing output for every input token. Since BERT uses WordPiece tokenizer, sometimes even one word noun gets tokenized into multiple tokens. $C$ function combines these multiple vectors into single fixed size vector. We have used two different types of $C$. In one case we just take a mean of all these vectors. That is bag of tokens. In other model we learn attention on these tokens and then combine proportional to the attention. We used Multiplicative attention. 
 
-
-For LSTM, we used single layer with 400 hidden units. In these experiments, output of LSTM was passed to scoring function.
+For LSTM, we used single layer with 256 hidden units. In these experiments, output of LSTM was passed to scoring function with two linear layers, with layer of size 32 removed.
 
 We have implemented our models in PyTorch. We used pretrained BERT models from Hugging Face\footnote{https://github.com/huggingface/pytorch-pretrained-BERT}. We used Adam optimizer with default parameters. We used patience value of 20, that is if no improvement in validation loss happened within 20 epochs, we would stop training. Weight decay of 0.001 was used. Dropout value of 0.5 was used. The best results were obtained by 20th layer of BERT large model.
 
@@ -224,7 +225,7 @@ Table \ref{tab:ce1} shows cross entropy loss on Kaggle test set of stage 1.  Oth
     \hline
     SVM-8          &  0.7809 \\
     \hline
-    RNN-MLP & 0.3963 \\
+    RNN-MLP & 0.3529 \\
     \hline
     MLP  & 0.2462 \\
     MLP-attn   & 0.2545 \\
