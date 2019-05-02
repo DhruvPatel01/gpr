@@ -6,14 +6,40 @@
 
 
 \title{Gendered Pronoun Resolution}
-\author[Dhruv (14528)]{Patel Dhruv Hasmukhlal \\14528}
+\author[Dhruv, Prateek]{ Dhruv Patel (14528) \and Prateek Sachan (15754)}
 \institute[CSA, IISc.]{Computer Science and Automation, Indian Institute of Science}
 \begin{document}
 \begin{frame}
   \maketitle
 \end{frame}
 
-\section{Augmentation}
+\section{Problem Introduction}
+\begin{frame}{Problem}
+  \begin{itemize}
+  \item<+-> We are given a sentence or sentences, two candidate nouns within a sentence and a pronoun
+  \item<+-> Task is to identify which of the two candidates referes to that pronoun
+  \item<+-> Introduced as Kaggle competition by Google AI
+  \end{itemize}
+
+    \begin{block}<+->{Example}
+      Impressed by her beauty, her warrior skills, and the fact that she was able to locate him, she is promoted to a position similar to that later held by her half-sister, Talia. As a right hand associate, she accompanies him during his adventures. Ra's is so impressed with her abilities, he even allows Nyssa to use his Lazarus Pits. Like \textit{\textbf{her}} sister \textbf{Talia}, \textbf{\underline{Nyssa}} eventually becomes disenchanted with Ra's genocidal plans to ``cleanse the Earth'', and disassociates herself from her father sometime in the early 20th century.
+    \end{block}
+
+\end{frame}
+
+\section{Datasets}
+\begin{frame}{Datasets}
+  \begin{block}<+->{GAP Webster et al. (2018)\cite{webster2018gap}}
+    
+  \end{block}
+
+  \begin{block}<+->{Definite Pronoun Resoluiton, Rahman et al. (2012), \cite{rahman2012resolving}}
+    
+  \end{block}
+
+\end{frame}
+
+\subsection{Data Augmentation}
 \begin{frame}{Augmentation}
 
   \begin{itemize}
@@ -33,6 +59,13 @@
     \caption{Distribution of names}
     \label{fig:dist_names}
   \end{figure}
+\end{frame}
+
+\section{}
+\begin{frame}
+  \frametitle{References}
+  \bibliographystyle{ieeetr}
+  \bibliography{presentation.bib}
 \end{frame}
 
 \end{document}
