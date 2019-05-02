@@ -1,1 +1,6 @@
-\beamer@slide {fig:dist_names}{3}
+\beamer@slide {fig:dist_names}{22}
+\beamer@slide {fig:arch}{30}
+\beamer@slide {tab:f1}{43}
+\beamer@slide {tab:ce1}{43}
+\beamer@slide {tab:ce2}{44}
+\beamer@slide {tab:precisionrecall}{45}

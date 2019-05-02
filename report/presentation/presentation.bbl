@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{webster2018gap}
+K.~Webster, M.~Recasens, V.~Axelrod, and J.~Baldridge, ``Mind the gap: A
+  balanced corpus of gendered ambiguou,'' in {\em Transactions of the ACL},
+  p.~to appear, 2018.
+
+\bibitem{rahman2012resolving}
+A.~Rahman and V.~Ng, ``Resolving complex cases of definite pronouns: the
+  winograd schema challenge,'' in {\em Proceedings of the 2012 Joint Conference
+  on Empirical Methods in Natural Language Processing and Computational Natural
+  Language Learning}, pp.~777--789, Association for Computational Linguistics,
+  2012.
+
+\bibitem{lee2017end}
+K.~Lee, L.~He, M.~Lewis, and L.~Zettlemoyer, ``End-to-end neural coreference
+  resolution,'' in {\em Proceedings of the 2017 Conference on Empirical Methods
+  in Natural Language Processing}, (Copenhagen, Denmark), pp.~188--197,
+  Association for Computational Linguistics, Sept. 2017.
+
+\bibitem{wiseman2016learning}
+S.~Wiseman, A.~M. Rush, and S.~M. Shieber, ``Learning global features for
+  coreference resolution,'' in {\em Proceedings of the 2016 Conference of the
+  North {A}merican Chapter of the Association for Computational Linguistics:
+  Human Language Technologies}, (San Diego, California), pp.~994--1004,
+  Association for Computational Linguistics, June 2016.
+
+\end{thebibliography}

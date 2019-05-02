@@ -1,1 +1,8 @@
-\beamer@sectionintoc {1}{Augmentation}{2}{0}{1}
+\beamer@sectionintoc {1}{Problem Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Datasets}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Data Augmentation}{15}{0}{2}
+\beamer@subsectionintoc {2}{2}{Metrics}{23}{0}{2}
+\beamer@sectionintoc {3}{Method}{24}{0}{3}
+\beamer@sectionintoc {4}{Experiments}{34}{0}{4}
+\beamer@sectionintoc {5}{Results}{40}{0}{5}
+\beamer@sectionintoc {6}{Comments}{46}{0}{6}

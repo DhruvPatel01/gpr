@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.27)  29 APR 2019 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.27)  2 MAY 2019 11:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -627,10 +627,6 @@ Package: amsthm 2017/10/31 v2.20.4
 (/usr/share/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty))
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 9.
-
 (./presentation.aux)
 \openout1 = `presentation.aux'.
 
@@ -811,21 +807,177 @@ sh.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (./presentation.nav) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-] [2
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 30.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 30.
+
+(/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+) [2
 
 ]
-<../figures/augment_dist.png, id=78, 690.9012pt x 701.7417pt>
-File: ../figures/augment_dist.png Graphic file (type png)
-<use ../figures/augment_dist.png>
-Package pdftex.def Info: ../figures/augment_dist.png  used on input line 36.
-(pdftex.def)             Requested size: 215.10196pt x 218.46925pt.
-
-Overfull \vbox (10.23917pt too high) detected at line 36
- []
-
 [3
 
- <../figures/augment_dist.png>]
+] [4
+
+] [5
+
+] [6
+
+] [7
+
+] [8
+
+] [9
+
+] [10
+
+] [11
+
+] [12
+
+] [13
+
+] [14
+
+] [15
+
+] [16
+
+] [17
+
+] [18
+
+]
+[19
+
+] [20
+
+] [21
+
+]
+<../figures/augment_dist.png, id=689, 690.9012pt x 701.7417pt>
+File: ../figures/augment_dist.png Graphic file (type png)
+<use ../figures/augment_dist.png>
+Package pdftex.def Info: ../figures/augment_dist.png  used on input line 117.
+(pdftex.def)             Requested size: 215.10196pt x 218.46925pt.
+
+Overfull \vbox (10.23917pt too high) detected at line 117
+ []
+
+[22
+
+ <../figures/augment_dist.png>] [23
+
+] [24
+
+] [25
+
+] [26
+
+] [27
+
+] [28
+
+] [29
+
+]
+<../figures/arch1.png, id=940, 400.77pt x 274.2975pt>
+File: ../figures/arch1.png Graphic file (type png)
+<use ../figures/arch1.png>
+Package pdftex.def Info: ../figures/arch1.png  used on input line 156.
+(pdftex.def)             Requested size: 245.83282pt x 168.25458pt.
+ [30
+
+ <../figures/arch1.png>]
+<../figures/arch2.png, id=971, 400.77pt x 274.2975pt>
+File: ../figures/arch2.png Graphic file (type png)
+<use ../figures/arch2.png>
+Package pdftex.def Info: ../figures/arch2.png  used on input line 156.
+(pdftex.def)             Requested size: 245.83282pt x 168.25458pt.
+ [31
+
+ <../figures/arch2.png>]
+<../figures/arch3.png, id=1002, 400.77pt x 274.2975pt>
+File: ../figures/arch3.png Graphic file (type png)
+<use ../figures/arch3.png>
+Package pdftex.def Info: ../figures/arch3.png  used on input line 156.
+(pdftex.def)             Requested size: 245.83282pt x 168.25458pt.
+ [32
+
+ <../figures/arch3.png>]
+<../figures/arch4.png, id=1031, 400.77pt x 274.2975pt>
+File: ../figures/arch4.png Graphic file (type png)
+<use ../figures/arch4.png>
+Package pdftex.def Info: ../figures/arch4.png  used on input line 156.
+(pdftex.def)             Requested size: 245.83282pt x 168.25458pt.
+
+[33
+
+ <../figures/arch4.png>] [34
+
+] [35
+
+] [36
+
+] [37
+
+] [38
+
+] [39
+
+] [40
+
+] [41
+
+] [42
+
+]
+[43
+
+] [44
+
+] [45
+
+] [46
+
+]
+File: ../figures/augment_dist.png Graphic file (type png)
+<use ../figures/augment_dist.png>
+Package pdftex.def Info: ../figures/augment_dist.png  used on input line 300.
+(pdftex.def)             Requested size: 153.64493pt x 156.05405pt.
+ [47
+
+] [48
+
+] [49
+
+]
+File: ../figures/arch4.png Graphic file (type png)
+<use ../figures/arch4.png>
+Package pdftex.def Info: ../figures/arch4.png  used on input line 300.
+(pdftex.def)             Requested size: 153.64493pt x 105.1591pt.
+ [50
+
+] [51
+
+] (./presentation.bbl) [52
+
+ </usr/share/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
 
@@ -835,31 +987,41 @@ Overfull \vbox (10.23917pt too high) detected at line 36
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 38.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: E22FBAB88C6E502E467C3A39A0B1A985;47.
+(rerunfilecheck)             Checksum: 3B67EA998A00215FA3BA40928AB87980;429.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
  ) 
 Here is how much of TeX's memory you used:
- 17080 strings out of 492616
- 323915 string characters out of 6135177
- 407603 words of memory out of 5000000
- 20609 multiletter control sequences out of 15000+600000
- 5752 words of font info for 21 fonts, out of 8000000 for 9000
+ 17473 strings out of 492616
+ 331330 string characters out of 6135177
+ 412968 words of memory out of 5000000
+ 20859 multiletter control sequences out of 15000+600000
+ 10248 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,55p,804b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ssbx10.pfb>
-Output written on presentation.pdf (3 pages, 77807 bytes).
+ 56i,14n,55p,804b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi
+8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on presentation.pdf (52 pages, 377755 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 9 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1697 PDF objects out of 1728 (max. 8388607)
+ 1534 compressed objects within 16 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 140 words of extra memory for PDF output out of 10000 (max. 10000000)
 
